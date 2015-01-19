@@ -1,0 +1,91 @@
+\documentclass[12pt]{amsart}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts, comment, tikz}
+\renewcommand\thesubsection{\alph{subsection}}
+
+\begin{document}
+
+\title{Differential Geometry Homework 1}
+\author{Aaron Niskin \\PID: 3337729}
+\date{21 JAN 2015}
+\maketitle
+
+\section{}
+\subsection{Suppose that a particle in 3-space is moving under a central force \textbf{F}. That is equivalent to the following condition: there is a fixed point \emph{A} such that the acceleration vector points in direction of \emph{A} at all time. Prove that its trajectory lies in a fixed plane.}
+Let $r(s)$ be a Frenet curve in $\mathbb{R}^3$ parameterized by arc length ($s$ is the arc length parameter) such that $r''(s)=\alpha(s)\left(A-r(s)\right)$ for some $\mathcal{C}^2$ function, $\alpha$ that is non-zero on $I$. We can define $c(s):=A-r(s)$ so that $T(s),N(s),B(s)$ are the same for both curves. Furthermore, $c''(s)=-r''(s)=-\alpha(s)c(s)$.
+\\\textit{Claim:} $B(s)$ is constant, and hence $c(s)$ must lie in the plane normal to $B(s_0)$.
+\begin{proof}
+\begin{equation}
+	T(s)=c'(s)
+\end{equation}
+\begin{equation}
+	N(s)=\frac{c''(s)}{\kappa(s)}=\frac{-\alpha(s)c(s)}{\kappa(s)}
+\end{equation}
+\begin{equation}
+	B(s)=T(s)\times N(s)
+\end{equation}
+Then,
+\begin{equation}
+	T'(s)=c''(s)=-\alpha(s)c(s)
+\end{equation}
+\begin{equation}
+	-\kappa(s)T(s)+\tau(s)B(s)=N'(s)=\left(\frac{-\alpha(s)c(s)}{\kappa(s)}\right)'
+\end{equation}
+\begin{equation}
+	B'(s)=-\tau(s)N(s)
+\end{equation}
+Note: 
+\begin{align*}
+	\left(\frac{-\alpha(s)c(s)}{\kappa(s)}\right)'&=\frac{-\alpha'(s)\kappa(s)c(s)+\alpha(s)\kappa'(s)c(s)-\alpha(s)\kappa(s)c'(s)}{\kappa(s)^2}
+	\\&=-\left(\frac{\alpha(s)}{\kappa(s)}\right)'c(s)-\frac{\alpha(s)c'(s)}{\kappa(s)}
+	\\&=\left(\frac{\alpha(s)}{\kappa(s)}\right)'\frac{\kappa(s)}{\alpha(s)}N(s)-\frac{\alpha(s)}{\kappa(s)}T(s)
+\end{align*}
+Since $T,N,B$ are the Frenet basis (hence ortho-normal) by equation (5) we know $-\kappa(s)=-\frac{\alpha(s)}{\kappa(s)}\rightarrow \kappa^2(s)=\alpha(s)$, and $\tau(s)=0$ for all $s$ which, given equation (6), concludes the proof. But we also see some other interesting results. Such as $\left(\frac{\alpha(s)}{\kappa(s)}\right)'\frac{\kappa(s)}{\alpha(s)}=0$. But since $\frac{\kappa(s)}{\alpha(s)}=\frac{1}{\kappa(s)}\neq0$, $\left(\frac{\alpha(s)}{\kappa(s)}\right)'=0\rightarrow\frac{\alpha(s)}{\kappa(s)}=\beta$, for some $\beta\in\mathbb{R}$. Which in turn means, $\kappa^2(s)=\alpha(s)=\beta\kappa(s)\rightarrow\kappa(s)=\beta$, and $\kappa$ is constant.
+\end{proof}
+\subsection{Fix the plane to be the $xy$-plane and write the equation for the trajectory of \emph{A} in polar coordinates.}
+$c(s)=(||c(s)||, )$
+
+\subsection{If the force \textbf{F} is given by \textbf{F}=$\frac{c(r)}{||r||^3}$, show that the trajectory is part of an ellipse, hyperbola or parabola (second order or quadratic curve).}
+
+\setcounter{equation}{0}
+\section{A Frenet curve in $\mathbb{R}^3$ is called a \emph{Bertrand curve}, if there is a second curve such that the principle normal vectors to these two curves (at corresponding points) are identical, viewed as lines in space. One speaks in the case of a \emph{Bertrand pair of curves}. Show that non-planar Bertrand curves are characterized by the existence of a linear relation $a\kappa+b\tau=1$ with constants $a,b$, where $a\neq0$.} Let $c_1,c_2$ be a pair of Bertrand curves in $\mathbb{R}^3$ and let $N_1,N_2$ be their corresponding Principal Normal vectors at $t$. Then $\forall t\in I,$ $N_1=N_2$. Hence, $\forall t\in I$, $\dot N_1=\dot N_2$ (so we can drop the subscripts on $N$ and $\dot N$). Now, $\frac{\ddot c_1}{||\ddot c_1||}=N=\frac{\ddot c_2}{||\ddot c_2||}$
+\begin{comment}Since,
+\[\left(\begin{array}{c}
+	T_1 \\
+	N_1 \\
+	B_1
+\end{array} \right)' =\left(\begin{array}{ccc}
+	0 & \kappa_1 & 0 \\
+	-\kappa_1 & 0 & \tau_1 \\
+	0 & -\tau_1 & 0
+\end{array} \right)
+\left(\begin{array}{c}
+	T_1\\
+	N_1\\
+	B_1
+\end{array}\right) \]
+we know, $-\kappa_1T_1+\tau_1B_1=-\kappa_2T_2+\tau_2B_2$, and $\frac{T_1'}{\kappa_1}=\frac{T_2'}{\kappa_2}$
+\end{comment}
+
+\section{Suppose $r=r(t)$ is a regular curve satisfying $r''=r'\times H$ for a constant vector $H$ (according to one source this is the equation of an electron moving under a magnetic field force). Prove that $\tau$ and $\kappa$ are constants.}
+Note: $r''(s)=$
+
+\section{Let $A_x$ and $A_y$ be the operators corresponding to the cross product with the vectors $x$ and $y$ respectively. Show that $A_xA_y-A_yA_x=A_{x\times y}$}
+This is just a computation. There's definitely a theory way to go here (involving commutators, or lie groups or whatever), but I can't see that way right now, so I'll just do this computationally.
+\begin{comment}\begin{align*}
+	\left(A_xA_y-A_yA_x\right)(z)=&x\times(y\times z)-y\times(x\times z)
+	\\=&x\times\left((y_2z_3-y_3z_2)i-(y_1z_3-y_3z_1)j+(y_2z_3-y_3z_2)k \right)
+	\\&- y\times\left((x_2z_3-x_3z_2)i-(x_1z_3-x_3z_1)j+(x_2z_3-x_3z_2)k \right)
+	\\=&(x_2y_2z_3-x_2y_3z_2+x_3y_1z_3-x_3y_3z_1)i
+	\\&-(x_1y_2z_3-x_1y_3z_2-x_3y_2z_3+x_3y_3z_2)j
+	\\&+
+\end{align*}
+\end{comment}
+\begin{align*}
+	(A_XA_Y-A_YA_X)(Z)=&X\times (Y\times Z)-Y\times(X\times Z)
+	\\=&X\times(Y\times Z)+Y\times(Z\times X)
+	\\=&-Z\times(X\times Y)
+	\\=&(X\times Y)\times Z=A_{X\times Y}(Z)
+\end{align*}
+
+\end{document}
