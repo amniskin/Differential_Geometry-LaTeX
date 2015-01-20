@@ -12,41 +12,56 @@
 
 \section{}
 \subsection{Suppose that a particle in 3-space is moving under a central force \textbf{F}. That is equivalent to the following condition: there is a fixed point \emph{A} such that the acceleration vector points in direction of \emph{A} at all time. Prove that its trajectory lies in a fixed plane.}
-Let $r(s)$ be a Frenet curve in $\mathbb{R}^3$ parameterized by arc length ($s$ is the arc length parameter) such that $r''(s)=\alpha(s)\left(A-r(s)\right)$ for some $\mathcal{C}^2$ function, $\alpha$ that is non-zero on $I$. We can define $c(s):=A-r(s)$ so that $T(s),N(s),B(s)$ are the same for both curves. Furthermore, $c''(s)=-r''(s)=-\alpha(s)c(s)$.
-\\\textit{Claim:} $B(s)$ is constant, and hence $c(s)$ must lie in the plane normal to $B(s_0)$.
+Let $r$ be a Frenet curve in $\mathbb{R}^3$ such that $\ddot r=\alpha\left(A-r\right)$ for some $\mathcal{C}^2$ function, $\alpha$ that is non-zero on $I$ and some fixed point $A$. We can define $c:=A-r$ so that $T,N,B$ are the same for both curves (up to negation). Furthermore, $\ddot c=-\ddot r=-\alpha c$.
+\\\textit{Claim:} $B$ is constant, and hence $c$ must lie in the plane normal to $B$.
 \begin{proof}
+Firstly,
 \begin{equation}
-	T(s)=c'(s)
+	-\alpha c=\ddot c=\frac{d^2c}{dt^2}=\frac{d}{dt}\left(\frac{dc}{ds}\frac{ds}{dt}\right)=\frac{d}{dt}\left(c'\dot s\right)=c''\dot s^2+c'\ddot s%=\dot s^2\kappa N+\ddot sT
 \end{equation}
 \begin{equation}
-	N(s)=\frac{c''(s)}{\kappa(s)}=\frac{-\alpha(s)c(s)}{\kappa(s)}
+	T=c'
 \end{equation}
 \begin{equation}
-	B(s)=T(s)\times N(s)
+	N=\frac{c''}{\kappa}=-\frac{\alpha c+\ddot sc'}{\dot s^2\kappa}
+\end{equation}
+\begin{equation}
+	B=T\times N
 \end{equation}
 Then,
 \begin{equation}
-	T'(s)=c''(s)=-\alpha(s)c(s)
+	T'=c''=\kappa N
 \end{equation}
 \begin{equation}
-	-\kappa(s)T(s)+\tau(s)B(s)=N'(s)=\left(\frac{-\alpha(s)c(s)}{\kappa(s)}\right)'
+	-\kappa T+\tau B=N'=\left(-\frac{\alpha c+\ddot sc'}{\dot s^2\kappa}\right)'
 \end{equation}
 \begin{equation}
-	B'(s)=-\tau(s)N(s)
+	B'=-\tau N
 \end{equation}
 Note: 
+\begin{equation}
+	-\kappa T+\tau B=\left(-\frac{\alpha c+\ddot sc'}{\dot s^2\kappa}\right)'=\frac{-(\alpha'c+c'\alpha+\ddot sc'')\dot s^2\kappa+\dot s^2\kappa'(\alpha c+\ddot sc')}{\dot s^4\kappa^2}
+\end{equation}
+By taking the right hand side of equation (8), simplifying and replacing every occurrence of $c$ with $-\frac{\dot s^2c''+\ddot sc'}{\alpha}=-\frac{\dot s^2\kappa N+\ddot sT}{\alpha}$ from (1), we find, 
 \begin{align*}
-	\left(\frac{-\alpha(s)c(s)}{\kappa(s)}\right)'&=\frac{-\alpha'(s)\kappa(s)c(s)+\alpha(s)\kappa'(s)c(s)-\alpha(s)\kappa(s)c'(s)}{\kappa(s)^2}
-	\\&=-\left(\frac{\alpha(s)}{\kappa(s)}\right)'c(s)-\frac{\alpha(s)c'(s)}{\kappa(s)}
-	\\&=\left(\frac{\alpha(s)}{\kappa(s)}\right)'\frac{\kappa(s)}{\alpha(s)}N(s)-\frac{\alpha(s)}{\kappa(s)}T(s)
+	-\kappa T+\tau B=&\frac{-(\alpha'c+c'\alpha+\ddot sc'')\kappa+\dot\kappa'(\alpha c+\ddot sc')}{\dot s^2\kappa^2}
+	\\=&\frac{-\alpha'(\dot s^2\kappa N+\ddot sT)\kappa/\alpha-\kappa\alpha T-\ddot s\kappa^2N-\kappa'\dot s^2\kappa N}{\dot s^2\kappa^2}
+	\\=&\left(\frac{-\alpha'\ddot s-\alpha^2}{\dot s^2\kappa\alpha}\right)T-\left(\frac{\alpha'\dot s^2\kappa+\ddot s\kappa\alpha+\kappa'\alpha\dot s^2}{\dot s^2\kappa\alpha}\right)N
 \end{align*}
-Since $T,N,B$ are the Frenet basis (hence ortho-normal) by equation (5) we know $-\kappa(s)=-\frac{\alpha(s)}{\kappa(s)}\rightarrow \kappa^2(s)=\alpha(s)$, and $\tau(s)=0$ for all $s$ which, given equation (6), concludes the proof. But we also see some other interesting results. Such as $\left(\frac{\alpha(s)}{\kappa(s)}\right)'\frac{\kappa(s)}{\alpha(s)}=0$. But since $\frac{\kappa(s)}{\alpha(s)}=\frac{1}{\kappa(s)}\neq0$, $\left(\frac{\alpha(s)}{\kappa(s)}\right)'=\kappa'(s)=0\rightarrow\kappa(s)=\beta$, for some $\beta\in\mathbb{R}$. But why should there being a central force mean constant curvature?
+is a linear combination of $T, N$. Since $T,N,B$ are orthonormal, we see that $\tau=0$.
 \end{proof}
+Furthermore, $\kappa^2\dot s^2\alpha=\alpha'\ddot s+\alpha^2$, and $\alpha'\dot s^2\kappa+\ddot s\kappa\alpha+\kappa'\alpha\dot s^2=0$
+\begin{align*}
+	0=&\alpha'\dot s^2\ddot s\kappa+\ddot s^2\kappa\alpha+\ddot s\kappa'\alpha\dot s^2
+	\\=&(\kappa^2\dot s^2\alpha-\alpha^2)\dot s^2\kappa+\ddot s^2\kappa\alpha+\ddot s\kappa'\alpha\dot s^2
+	\\=&(\kappa^2\dot s^2-\alpha)\dot s^2\kappa+\ddot s^2\kappa+\ddot s\kappa'\dot s^2
+\end{align*}
 
 \subsection{Fix the plane to be the $xy$-plane and write the equation for the trajectory of \emph{A} in polar coordinates.}
-Fix the $x,y$ plane to be the one that the curve is in (normal to $B$). Let us further let $x$ be in the direction of $T(s_0)$, and $y$ in the direction of $N(s_0)$. $c(s)=(||c(s)||,)$
+Let $x$ be in the direction of $T(s_0)$, $y$ in the direction of $N(s_0)$ and $z$ in the direction of $B$. Then $r(s)=(||c(s)||,\theta,0)+A$, where $\theta$ is the angle.
 
-\subsection{If the force \textbf{F} is given by \textbf{F}=$\frac{c(r)}{||r||^3}$, show that the trajectory is part of an ellipse, hyperbola or parabola (second order or quadratic curve).}
+\subsection{If the force \textbf{F} is given by \textbf{F}=$\frac{cr}{||r||^3}$, show that the trajectory is part of an ellipse, hyperbola or parabola (second order or quadratic curve).}
+If we assume that $\ddot c=F$, then $\ddot c(t)=F=\frac{c}{||r||^2}\frac{r}{||r||}$, then $A=\vec0$ 
 
 \setcounter{equation}{0}
 \section{A Frenet curve in $\mathbb{R}^3$ is called a \emph{Bertrand curve}, if there is a second curve such that the principle normal vectors to these two curves (at corresponding points) are identical, viewed as lines in space. One speaks in the case of a \emph{Bertrand pair of curves}. Show that non-planar Bertrand curves are characterized by the existence of a linear relation $a\kappa+b\tau=1$ with constants $a,b$, where $a\neq0$.} Let $c_1,c_2$ be a pair of Bertrand curves in $\mathbb{R}^3$ and let $N_1,N_2$ be their corresponding Principal Normal vectors at $t$. Then $\forall t\in I,$ $N_1=N_2$. Hence, $\forall t\in I$, $\dot N_1=\dot N_2$ (so we can drop the subscripts on $N$ and $\dot N$). Now, $\frac{\ddot c_1}{||\ddot c_1||}=N=\frac{\ddot c_2}{||\ddot c_2||}$
