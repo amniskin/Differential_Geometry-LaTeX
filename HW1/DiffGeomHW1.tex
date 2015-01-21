@@ -1,6 +1,7 @@
 \documentclass[12pt]{amsart}
 
 \usepackage{amsmath, amsthm, amssymb, amsfonts, comment, tikz}
+\usepackage[margin=0.65 in]{geometry}
 \renewcommand\thesubsection{\alph{subsection}}
 
 \begin{document}
@@ -20,17 +21,7 @@ Firstly,
 	-\alpha c=\ddot c=\frac{d^2c}{dt^2}=\frac{d}{dt}\left(\frac{dc}{ds}\frac{ds}{dt}\right)=\frac{d}{dt}\left(c'\dot s\right)=c''\dot s^2+c'\ddot s%=\dot s^2\kappa N+\ddot sT
 \end{equation}
 \begin{equation}
-	T=c'
-\end{equation}
-\begin{equation}
 	N=\frac{c''}{\kappa}=-\frac{\alpha c+\ddot sc'}{\dot s^2\kappa}
-\end{equation}
-\begin{equation}
-	B=T\times N
-\end{equation}
-Then,
-\begin{equation}
-	T'=c''=\kappa N
 \end{equation}
 \begin{equation}
 	-\kappa T+\tau B=N'=\left(-\frac{\alpha c+\ddot sc'}{\dot s^2\kappa}\right)'
@@ -38,7 +29,7 @@ Then,
 \begin{equation}
 	B'=-\tau N
 \end{equation}
-By taking equation (6), simplifying and replacing every occurrence of $c$ with $-\frac{\dot s^2c''+\ddot sc'}{\alpha}=-\frac{\dot s^2\kappa N+\ddot sT}{\alpha}$ from (1), we find, 
+By taking equation (3), simplifying and replacing every occurrence of $c$ with $-\frac{\dot s^2c''+\ddot sc'}{\alpha}=-\frac{\dot s^2\kappa N+\ddot sT}{\alpha}$ from (1), we find, 
 \begin{align*}
 	-\kappa T+\tau B=&\left(-\frac{\alpha c+\ddot sc'}{\dot s^2\kappa}\right)'
 	\\=&\frac{-(\alpha'c+c'\alpha+\ddot sc'')\dot s^2\kappa+\dot s^2\kappa'(\alpha c+\ddot sc')}{\dot s^4\kappa^2}
@@ -58,32 +49,74 @@ Furthermore, $\kappa^2\dot s^2\alpha=\alpha'\ddot s+\alpha^2$, and $\alpha'\dot 
 \subsection{Fix the plane to be the $xy$-plane and write the equation for the trajectory of \emph{A} in polar coordinates.}
 Let $x$ be in the direction of $T(s_0)$, $y$ in the direction of $N(s_0)$ and $z$ in the direction of $B$. Then $r(s)=(||c(s)||,\theta,0)+A$, where $\theta$ is the angle given by $\theta=\int_0^t\kappa(t)dt$.
 
-\subsection{If the force \textbf{F} is given by \textbf{F}=$\frac{cr}{||r||^3}$, show that the trajectory is part of an ellipse, hyperbola or parabola (second order or quadratic curve).}
-If we assume that $\ddot r=F$, then $\ddot r=F=\frac{c}{||r||^2}\frac{r}{||r||}$, then $A=\vec0$, and we have $h$
+\subsection{If the force \textbf{F} is given by \textbf{F}=$\frac{Cr}{||r||^3}$, show that the trajectory is part of an ellipse, hyperbola or parabola (second order or quadratic curve).}
+If we assume that $\ddot r=F$, then $\ddot r=F=\frac{C}{||r||^2}\frac{r}{||r||}$, then $A=\vec0$, and we have $\ddot r=-\alpha r$, hence, $-\alpha r=\frac{C}{||r||^2}\frac{r}{||r||}$. But then, $\left|\frac{C}{\alpha}\right|=||r||^3$. Hence, either $\alpha<0$, $C<0$, or $\alpha=C=0$. Furthermore, $\dot r(t)=\dot r(t)-\dot r(t_0)=\int_{t_0}^t\ddot r(t)dt=\int_{t_0}^t\frac{C}{||r||^2}\frac{r}{||r||}dt=$
+\\Case 1: $\alpha=C=0$. Then, $\ddot C=0\rightarrow c''=0\rightarrow C$ is a straight line.
+\\Case 2: $\alpha<0$, then $C>0$ and we have a hyperbola...
+\\Case 3: $\alpha>0$, then $C<0$ and we have either a parabola or an ellipse...
 
 \setcounter{equation}{0}
-\newpage
-\section{A Frenet curve in $\mathbb{R}^3$ is called a \emph{Bertrand curve}, if there is a second curve such that the principle normal vectors to these two curves (at corresponding points) are identical, viewed as lines in space. One speaks in the case of a \emph{Bertrand pair of curves}. Show that non-planar Bertrand curves are characterized by the existence of a linear relation $a\kappa+b\tau=1$ with constants $a,b$, where $a\neq0$.} Let $c_1,c_2$ be a pair of Bertrand curves in $\mathbb{R}^3$ and let $N_1,N_2$ be their corresponding Principal Normal vectors at $t$. Then $\forall t\in I,$ $N_1=N_2$. Hence, $\forall t\in I$, $\dot N_1=\dot N_2$ (so we can drop the subscripts on $N$ and $\dot N$). Now, $\frac{\ddot c_1}{\kappa_1}=N=\frac{\ddot c_2}{\kappa_2}$. Since the $N$ vectors are identical at every point, then $\frac{dN}{dt}$ must have the same property. Hence, if we let $s_1,s_2$ be the arc-length parameters then $(-\kappa_1T_1+\tau_1B_1)\frac{ds_1}{dt}=(-\kappa_2T_2+\tau_2B_2)\frac{ds_2}{dt}$
-\begin{comment}Since,
-\[\left(\begin{array}{c}
-	T_1 \\
-	N_1 \\
-	B_1
-\end{array} \right)' =\left(\begin{array}{ccc}
-	0 & \kappa_1 & 0 \\
-	-\kappa_1 & 0 & \tau_1 \\
-	0 & -\tau_1 & 0
-\end{array} \right)
-\left(\begin{array}{c}
-	T_1\\
-	N_1\\
-	B_1
-\end{array}\right) \]
-we know, $-\kappa_1T_1+\tau_1B_1=-\kappa_2T_2+\tau_2B_2$, and $\frac{T_1'}{\kappa_1}=\frac{T_2'}{\kappa_2}$
-\end{comment}
+\newpage%#2
+\section{A Frenet curve in $\mathbb{R}^3$ is called a \emph{Bertrand curve}, if there is a second curve such that the principle normal vectors to these two curves (at corresponding points) are identical, viewed as lines in space. One speaks in the case of a \emph{Bertrand pair of curves}. Show that non-planar Bertrand curves are characterized by the existence of a linear relation $a\kappa+b\tau=1$ with constants $a,b$, where $a\neq0$.} Let $c_1,c_2$ be a pair of Bertrand curves in $\mathbb{R}^3$ and let $N_1,N_2$ be their corresponding Principal Normal vectors at $t$. Then $\forall t\in I,$ $N_1=N_2$. Hence, $\forall t\in I$, $\dot N_1=\dot N_2$ (so we can drop the subscripts on $N$ and $\dot N$). Now, $\frac{\ddot c_1}{\kappa_1}=N=\frac{\ddot c_2}{\kappa_2}$. Since the $N$ vectors are identical at every point, then $\frac{dN}{dt}$ must have the same property. Hence, if we let $s_1,s_2$ be the arc-length parameters then $(-\kappa_1T_1+\tau_1B_1)\frac{ds_1}{dt}=(-\kappa_2T_2+\tau_2B_2)\frac{ds_2}{dt}$.
 
 \section{Suppose $r=r(t)$ is a regular curve satisfying $r''=r'\times H$ for a constant vector $H$ (according to one source this is the equation of an electron moving under a magnetic field force). Prove that $\tau$ and $\kappa$ are constants.}
-Let $s$ be the arc length parameter. Then, $T=\frac{dr}{ds}=\frac{dr}{dt}\frac{dt}{ds}$, and $\kappa N=\frac{d^2r}{ds^2}=\frac{d^2r}{dt^2}\left(\frac{dt}{ds}\right)^2+\frac{dr}{dt}\frac{d^2t}{ds^2}=\left(\frac{dt}{ds}\right)^2r'\times H+\left(\frac{d^2t}{ds^2}\right)\left(\frac{ds}{dt}\right)T$
+\begin{proof}
+Let $s$ be the arc length parameter for $r$, let $C=||H||$ and $V=\frac{H}{||H||}$. Then $r'=\dot r\frac{dt}{ds}$. Since $1=||r'||=||\dot r||\cdot||\frac{dt}{ds}||\rightarrow\frac{1}{||dt/ds||}=||\frac{ds}{dt}||=||\dot s||=||\dot r||$. Hence 
+\begin{align*}
+	\left(\dot s\right)^2=&\dot r\cdot\dot r\rightarrow
+	\\2\dot s\ddot s=&2\ddot r\cdot\dot r
+	\\=&(\dot r\times H)\cdot \dot r=0
+\end{align*}
+Hence, either $\dot s=0$ or, $\ddot s=0$. Either way, $\ddot s=0$, and $s=at+b$ with $a,b\in\mathbb{R}$. Next we have,
+\begin{align*}
+	T=&r'(s)
+	\\=&\dot r\frac{dt}{ds}
+	\\=&\frac{1}{a}\dot r\rightarrow||\dot r||=a
+\end{align*}
+Furthermore,
+\begin{comment}\begin{align*}
+	0=&T\cdot N
+	\\=&r'\cdot N
+\end{align*}
+\end{comment}
+\begin{align*}
+	T'=&\frac{d^2r}{ds^2}
+	\\=&\frac{d}{dt}\left(\frac{1}{a}\dot r\right)\frac{dt}{ds}
+	\\=&\frac{1}{a^2}\ddot r
+	\\=&\frac{1}{a^2}\dot r\times H
+	\\=&\frac{1}{a}r'\times H
+\end{align*}
+and $T'=\kappa N$, so 
+\begin{align*}
+	\kappa'N+\kappa N'=T''=&\frac{1}{a}r''\times H
+	\\=&\frac{1}{a^2}(r'\times H)\times H
+\end{align*}
+so that
+\begin{align*}
+	\kappa'=&\langle\kappa'N+\kappa N',N\rangle
+	\\=&\langle\frac{1}{a^2}(r'\times H)\times H, N\rangle
+	\\=&\frac{1}{a}\langle T'\times H,N\rangle
+	\\=&\frac{1}{a}\langle\kappa N\times H,N\rangle=0
+\end{align*}
+Hence, $\kappa$ is constant.
+\\Next, let us first note: Since $T'=\frac{1}{a}T\times H$, then $N=\frac{T\times H}{||T\times H||}=CT\times H$, where $C=\frac{1}{||T\times H||}$, and, $B=T\times N$.
+\begin{align*}
+	\tau=&-\langle B,N'\rangle
+	\\=&-\langle T\times N, (CT\times H)'\rangle
+	\\=&-\langle T\times N, C'T\times H+CT'\times H\rangle
+	\\=&-\langle T\times N, CT'\times H\rangle\text{ because $T\times H$ and $N$ are lin dep}
+	\\=&-\langle T\times N, C\frac{1}{a}(T\times H)\times H\rangle
+	\\=&\frac{-1}{a}\langle B,N\times H\rangle
+\end{align*}
+Hence,
+\begin{align*}
+	-a\tau'=&\langle B,N\times H\rangle'
+	\\=&\langle B',N\rangle +\langle B,N'\rangle
+	\\=&\langle -\tau N, N\rangle + \langle B,-\kappa T+\tau B\rangle
+	\\=&-\tau+\tau=0
+\end{align*}
+So, $\tau$ is constant too.
+\end{proof}
 
 \section{Let $A_X$ and $A_Y$ be the operators corresponding to the cross product with the vectors $X$ and $Y$ respectively. Show that $A_XA_Y-A_YA_X=A_{X\times Y}$}
 This is just a computation. There's definitely a theory way to go here (involving commutators, or lie groups or whatever), but I can't see that way right now, so I'll just do this computationally.
