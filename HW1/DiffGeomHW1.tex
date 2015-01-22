@@ -53,7 +53,14 @@ Note: If $k=0$ at a single point (hence finitely many), all we would have to sho
 Let $x$ be in the direction of $T(s_0)$, $y$ in the direction of $N(s_0)$ and $z$ in the direction of $B$. Then $r(s)=(||c(s)||,\theta,0)+A$, where $\theta$ is the angle given by $\theta=\int_0^t\kappa(t)dt$.
 
 \subsection{If the force \textbf{F} is given by \textbf{F}=$\frac{Cr}{||r||^3}$, show that the trajectory is part of an ellipse, hyperbola or parabola (second order or quadratic curve).}
-If we assume that $\ddot r=F$, then $\ddot r=F=\frac{C}{||r||^2}\frac{r}{||r||}$, then $A=\vec0$, and we have $\ddot r=-\alpha r$, hence, $-\alpha r=\frac{C}{||r||^2}\frac{r}{||r||}$. But then, $\left|\frac{C}{\alpha}\right|=||r||^3$. Hence, either $\alpha<0$, $C<0$, or $\alpha=C=0$. Furthermore, $\dot r(t)-\dot r(t_0)=\int_{t_0}^t\ddot r(t)dt=\int_{t_0}^t\frac{C}{||r||^2}\frac{r}{||r||}dt=$
+For ease of notation, let $d=||r||$. If we assume that $\ddot r=F$, then $\ddot r=F=\frac{C}{d^2}\frac{r}{||r||}$, then $A=\vec0$, and we have $\ddot r=-\alpha r$, hence, $-\alpha r=\frac{C}{d^2}\frac{r}{||r||}$. But then, $\alpha=\alpha(d)=\frac{-C}{d^3}$. Hence, either $C>0$ (and $\alpha<0$), $C<0$ (and $\alpha>0$), or $\alpha=C=0$ for all $t$. From this we can conclude that $r=r(\theta)$ (or $r$ is a straight line).
+\begin{proof}
+	Firstly, if $C=\alpha=0$, then $\ddot r=0$, and $r''=N=0$. So from now on we will assume that $C\neq0$. Just for ease of notation, let $s_0=0$ (if not we can reparameterize). Let $r(0)=p$, and $r'(0)$ not be in the direction of the origin (if it is in the direction of the origin, again we have a straight line). Then if we let $l$ be the ray starting at the origin and passing through $p$, our claim is that $r$ passes through $l$ only at $p$.
+	\begin{align*}
+		\dot r=& r'\dot s & \frac{Cr}{d^3}&=\ddot r=r''(\dot s)^2+r'\ddot s=(\dot s)^2\kappa N+\ddot s T
+	\end{align*}
+\end{proof}
+Furthermore, $\dot r(t)-\dot r(t_0)=\int_{t_0}^t\ddot r(t)dt=\int_{t_0}^t\frac{C}{||r||^2}\frac{r}{||r||}dt=$
 \\Case 1: $\alpha=C=0$. Then, $\ddot c=0\rightarrow c''=0\rightarrow c$ is a straight line.
 \\Case 2: $\alpha<0$, then $C>0$ and we have a hyperbola...
 \\Case 3: $\alpha>0$, then $C<0$ and we have either a parabola or an ellipse...
