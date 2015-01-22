@@ -13,7 +13,7 @@
 
 \section{}
 \subsection{Suppose that a particle in 3-space is moving under a central force \textbf{F}. That is equivalent to the following condition: there is a fixed point \emph{A} such that the acceleration vector points in direction of \emph{A} at all time. Prove that its trajectory lies in a fixed plane.}
-Let $r$ be a Frenet curve in $\mathbb{R}^3$ such that $\ddot r=\alpha\left(A-r\right)$ for some $\mathcal{C}^2$ function, $\alpha$ that is non-zero on $I$ and some fixed point $A$. We can define $c:=A-r$ so that $T,N,B$ are the same for both curves (up to negation). Furthermore, $\ddot c=-\ddot r=-\alpha c$.
+Let $r$ be a Frenet curve in $\mathbb{R}^3$ such that $\ddot r=\alpha\left(A-r\right)$ for some smooth real valued function, $\alpha$ that is non-zero on $I$ and some fixed point $A$. We can define $c:=A-r$ so that $T,N,B$ are the same for both curves (up to negation). Furthermore, $\ddot c=-\ddot r=-\alpha c$.
 \\\textit{Claim:} $B$ is constant, and hence $c$ must lie in the plane normal to $B$.
 \begin{proof}
 Firstly,
@@ -39,7 +39,10 @@ By taking equation (3), simplifying and replacing every occurrence of $c$ with $
 \end{align*}
 is a linear combination of $T, N$. Since $T,N,B$ are orthonormal, we see that $\tau=0$.
 \end{proof}
-Furthermore, $\kappa^2\dot s^2\alpha=\alpha'\ddot s+\alpha^2$, and $\alpha'\dot s^2\kappa+\ddot s\kappa\alpha+\kappa'\alpha\dot s^2=0$
+Note: If $k=0$ at a single point (hence finitely many), all we would have to show is that before and after said point, the plane in which the curve lies is not shifted. To do this, we simply note that any shift in said plane means a non-zero $\tau$ (because $B'\neq0$). If we fix an epsilon, then we find that there needs to be some interval with $\tau\neq0$, and hence comes our contradiction.
+\\Next, if the plane before and after are the same, then the point in question must lie in that plane for the same reason (fix epsilon).
+
+\\Furthermore, $\kappa^2\dot s^2\alpha=\alpha'\ddot s+\alpha^2$, and $\alpha'\dot s^2\kappa+\ddot s\kappa\alpha+\kappa'\alpha\dot s^2=0$
 \begin{align*}
 	0=&\alpha'\dot s^2\ddot s\kappa+\ddot s^2\kappa\alpha+\ddot s\kappa'\alpha\dot s^2
 	\\=&(\kappa^2\dot s^2\alpha-\alpha^2)\dot s^2\kappa+\ddot s^2\kappa\alpha+\ddot s\kappa'\alpha\dot s^2
@@ -50,18 +53,24 @@ Furthermore, $\kappa^2\dot s^2\alpha=\alpha'\ddot s+\alpha^2$, and $\alpha'\dot 
 Let $x$ be in the direction of $T(s_0)$, $y$ in the direction of $N(s_0)$ and $z$ in the direction of $B$. Then $r(s)=(||c(s)||,\theta,0)+A$, where $\theta$ is the angle given by $\theta=\int_0^t\kappa(t)dt$.
 
 \subsection{If the force \textbf{F} is given by \textbf{F}=$\frac{Cr}{||r||^3}$, show that the trajectory is part of an ellipse, hyperbola or parabola (second order or quadratic curve).}
-If we assume that $\ddot r=F$, then $\ddot r=F=\frac{C}{||r||^2}\frac{r}{||r||}$, then $A=\vec0$, and we have $\ddot r=-\alpha r$, hence, $-\alpha r=\frac{C}{||r||^2}\frac{r}{||r||}$. But then, $\left|\frac{C}{\alpha}\right|=||r||^3$. Hence, either $\alpha<0$, $C<0$, or $\alpha=C=0$. Furthermore, $\dot r(t)=\dot r(t)-\dot r(t_0)=\int_{t_0}^t\ddot r(t)dt=\int_{t_0}^t\frac{C}{||r||^2}\frac{r}{||r||}dt=$
-\\Case 1: $\alpha=C=0$. Then, $\ddot C=0\rightarrow c''=0\rightarrow C$ is a straight line.
+If we assume that $\ddot r=F$, then $\ddot r=F=\frac{C}{||r||^2}\frac{r}{||r||}$, then $A=\vec0$, and we have $\ddot r=-\alpha r$, hence, $-\alpha r=\frac{C}{||r||^2}\frac{r}{||r||}$. But then, $\left|\frac{C}{\alpha}\right|=||r||^3$. Hence, either $\alpha<0$, $C<0$, or $\alpha=C=0$. Furthermore, $\dot r(t)-\dot r(t_0)=\int_{t_0}^t\ddot r(t)dt=\int_{t_0}^t\frac{C}{||r||^2}\frac{r}{||r||}dt=$
+\\Case 1: $\alpha=C=0$. Then, $\ddot c=0\rightarrow c''=0\rightarrow c$ is a straight line.
 \\Case 2: $\alpha<0$, then $C>0$ and we have a hyperbola...
 \\Case 3: $\alpha>0$, then $C<0$ and we have either a parabola or an ellipse...
 
 \setcounter{equation}{0}
 \newpage%#2
 \section{A Frenet curve in $\mathbb{R}^3$ is called a \emph{Bertrand curve}, if there is a second curve such that the principle normal vectors to these two curves (at corresponding points) are identical, viewed as lines in space. One speaks in the case of a \emph{Bertrand pair of curves}. Show that non-planar Bertrand curves are characterized by the existence of a linear relation $a\kappa+b\tau=1$ with constants $a,b$, where $a\neq0$.} Let $c_1,c_2$ be a pair of Bertrand curves in $\mathbb{R}^3$ and let $N_1,N_2$ be their corresponding Principal Normal vectors at $t$. Then $\forall t\in I,$ $N_1=N_2$. Hence, $\forall t\in I$, $\dot N_1=\dot N_2$ (so we can drop the subscripts on $N$ and $\dot N$). Now, $\frac{\ddot c_1}{\kappa_1}=N=\frac{\ddot c_2}{\kappa_2}$. Since the $N$ vectors are identical at every point, then $\frac{dN}{dt}$ must have the same property. Hence, if we let $s_1,s_2$ be the arc-length parameters then $(-\kappa_1T_1+\tau_1B_1)\frac{ds_1}{dt}=(-\kappa_2T_2+\tau_2B_2)\frac{ds_2}{dt}$.
+\\Let $r$ be a Bertrand curve in $\mathbb{R}^3$, and let $c$ be its Bertrand pair. Furthermore, WLOG: let's assume that $r$ is already parameterized by arc-length.
+\\First we must notice that $d(r(t),c(t))$ is constant. To see this,
+\begin{align*}
+	d'(r(t),c(t))
+\end{align*}
 
+\newpage
 \section{Suppose $r=r(t)$ is a regular curve satisfying $r''=r'\times H$ for a constant vector $H$ (according to one source this is the equation of an electron moving under a magnetic field force). Prove that $\tau$ and $\kappa$ are constants.}
 \begin{proof}
-Let $s$ be the arc length parameter for $r$, let $C=||H||$ and $V=\frac{H}{||H||}$. Then $r'=\dot r\frac{dt}{ds}$. Since $1=||r'||=||\dot r||\cdot||\frac{dt}{ds}||\rightarrow\frac{1}{||dt/ds||}=||\frac{ds}{dt}||=||\dot s||=||\dot r||$. Hence 
+Let $s$ be the arc length parameter for $r$. Then $r'=\dot r\frac{dt}{ds}$. Since $1=||r'||=||\dot r||\cdot||\frac{dt}{ds}||\rightarrow\frac{1}{||dt/ds||}=||\frac{ds}{dt}||=||\dot s||=||\dot r||$. Hence 
 \begin{align*}
 	\left(\dot s\right)^2=&\dot r\cdot\dot r\rightarrow
 	\\2\dot s\ddot s=&2\ddot r\cdot\dot r
@@ -99,21 +108,22 @@ so that
 	\\=&\frac{1}{a}\langle\kappa N\times H,N\rangle=0
 \end{align*}
 Hence, $\kappa$ is constant.
-\\Next, let us first note: Since $T'=\frac{1}{a}T\times H$, then $N=\frac{T\times H}{||T\times H||}=CT\times H$, where $C=\frac{1}{||T\times H||}$, and, $B=T\times N$.
+\\Next, let us first note: Since $T'=\frac{1}{a}T\times H$, then $N=\frac{T\times H}{||T\times H||}=CT\times H$, where $C=\frac{1}{||T\times H||}=\frac{a}{\kappa}$ which is constant by part 1 of this question, and, $B=T\times N$.
 \begin{align*}
-	\tau=&-\langle B,N'\rangle
-	\\=&-\langle T\times N, (CT\times H)'\rangle
-	\\=&-\langle T\times N, C'T\times H+CT'\times H\rangle
-	\\=&-\langle T\times N, CT'\times H\rangle\text{ because $T\times H$ and $N$ are lin dep}
-	\\=&-\langle T\times N, C\frac{1}{a}(T\times H)\times H\rangle
-	\\=&\frac{-1}{a}\langle B,N\times H\rangle
+	\tau=&\langle B,N'\rangle\text{ by definition of $\tau$}
+	\\=&\langle B, (CT\times H)'\rangle
+	\\=&\langle B, CT'\times H\rangle
+	\\=&\langle B, C\frac{1}{a}(T\times H)\times H\rangle
+	\\=&\frac{1}{a}\langle B,N\times H\rangle
 \end{align*}
-Hence,
+Hence, first noting that $\langle B,N\rangle=0=\langle B,N\rangle'=\langle B',N\rangle+\langle B,N'\rangle=0\rightarrow\langle B',N\rangle=-\tau$
 \begin{align*}
-	-a\tau'=&\langle B,N\times H\rangle'
-	\\=&\langle B',N\rangle +\langle B,N'\rangle
-	\\=&\langle -\tau N, N\rangle + \langle B,-\kappa T+\tau B\rangle
-	\\=&-\tau+\tau=0
+	a\tau'=&\langle B,N\times H\rangle'
+	\\=&\langle B',N\times H\rangle +\langle B,N'\times H\rangle
+	\\=&\langle -\tau N, N\times H\rangle + \langle B,(-\kappa T+\tau B)\times H\rangle
+	\\=&0-\kappa\langle B,T\times H\rangle
+	\\=&-\frac{\kappa}{C}\langle B,CT\times H\rangle
+	\\=&-\frac{\kappa}{C}\langle B,N\rangle=0
 \end{align*}
 So, $\tau$ is constant too.
 \end{proof}
