@@ -41,7 +41,6 @@ is a linear combination of $T, N$. Since $T,N,B$ are orthonormal, we see that $\
 \end{proof}
 Note: If $k=0$ at a single point (hence finitely many), all we would have to show is that before and after said point, the plane in which the curve lies is not shifted. To do this, we simply note that any shift in said plane means a non-zero $\tau$ (because $B'\neq0$). If we fix an epsilon, then we find that there needs to be some interval with $\tau\neq0$, and hence comes our contradiction.
 \\Next, if the plane before and after are the same, then the point in question must lie in that plane for the same reason (fix epsilon).
-
 \\Furthermore, $\kappa^2\dot s^2\alpha=\alpha'\ddot s+\alpha^2$, and $\alpha'\dot s^2\kappa+\ddot s\kappa\alpha+\kappa'\alpha\dot s^2=0$
 \begin{align*}
 	0=&\alpha'\dot s^2\ddot s\kappa+\ddot s^2\kappa\alpha+\ddot s\kappa'\alpha\dot s^2
@@ -67,12 +66,46 @@ Furthermore, $\dot r(t)-\dot r(t_0)=\int_{t_0}^t\ddot r(t)dt=\int_{t_0}^t\frac{C
 
 \setcounter{equation}{0}
 \newpage%#2
-\section{A Frenet curve in $\mathbb{R}^3$ is called a \emph{Bertrand curve}, if there is a second curve such that the principle normal vectors to these two curves (at corresponding points) are identical, viewed as lines in space. One speaks in the case of a \emph{Bertrand pair of curves}. Show that non-planar Bertrand curves are characterized by the existence of a linear relation $a\kappa+b\tau=1$ with constants $a,b$, where $a\neq0$.} Let $c_1,c_2$ be a pair of Bertrand curves in $\mathbb{R}^3$ and let $N_1,N_2$ be their corresponding Principal Normal vectors at $t$. Then $\forall t\in I,$ $N_1=N_2$. Hence, $\forall t\in I$, $\dot N_1=\dot N_2$ (so we can drop the subscripts on $N$ and $\dot N$). Now, $\frac{\ddot c_1}{\kappa_1}=N=\frac{\ddot c_2}{\kappa_2}$. Since the $N$ vectors are identical at every point, then $\frac{dN}{dt}$ must have the same property. Hence, if we let $s_1,s_2$ be the arc-length parameters then $(-\kappa_1T_1+\tau_1B_1)\frac{ds_1}{dt}=(-\kappa_2T_2+\tau_2B_2)\frac{ds_2}{dt}$.
+\section{A Frenet curve in $\mathbb{R}^3$ is called a \emph{Bertrand curve}, if there is a second curve such that the principle normal vectors to these two curves (at corresponding points) are identical, viewed as lines in space. One speaks in the case of a \emph{Bertrand pair of curves}. Show that non-planar Bertrand curves are characterized by the existence of a linear relation $a\kappa+b\tau=1$ with constants $a,b$, where $a\neq0$.}
+Let $c_1,c_2$ be a pair of distinct Bertrand curves in $\mathbb{R}^3$. WLOG: we can assume that $c_1$ is parameterized by arc-length already (if not, then re-parameterize it, and whatever the re-parameterization function is, apply it to the $c_2$ parameter too, and we have what we want).
+\begin{comment} and let $N_1,N_2$ be their corresponding Principal Normal vectors at $t$. Then $\forall t\in I,$ $N_1=N_2$. Hence, $\forall t\in I$, $\dot N_1=\dot N_2$ (so we can drop the subscripts on $N$ and $\dot N$). Now, $\frac{\ddot c_1}{\kappa_1}=N=\frac{\ddot c_2}{\kappa_2}$. Since the $N$ vectors are identical at every point, then $\frac{dN}{dt}$ must have the same property. Hence, if we let $s_1,s_2$ be the arc-length parameters then $(-\kappa_1T_1+\tau_1B_1)\frac{ds_1}{dt}=(-\kappa_2T_2+\tau_2B_2)\frac{ds_2}{dt}$.
 \\Let $r$ be a Bertrand curve in $\mathbb{R}^3$, and let $c$ be its Bertrand pair. Furthermore, WLOG: let's assume that $r$ is already parameterized by arc-length.
-\\First we must notice that $d(r(t),c(t))$ is constant. To see this,
+\end{comment}
+\\First we notice that $d(c_1(t),c_2(t))$ is constant. To see this,
 \begin{align*}
-	d'(r(t),c(t))
+	c_2(t)=&c_1(t)+f(t)N(t) \text{ because the two $\vec N$s define the same line in space}
 \end{align*}
+If we prove that $f(t)$ is constant, we've done what we need. But note:
+\begin{align*}
+	\frac{T_2}{t'}=&\dot c_2
+	\\=&c_1'+f'N+fN'
+	\\=&T_1+f'N+f(-\kappa_1T_1+\tau_1B_1)
+	\\=&(1-f\kappa_1)T_1+f'N+f\tau_1B_1 \Rightarrow
+	\\f't'=&\langle c_2',N\rangle=\langle T_2,N\rangle=0
+\end{align*}
+So, $f$ is constant (because $t$ is never constant wrt the arc-length parameter, or differently stated, $t'\neq0$), and hence $d(c_1(t),c_2(t))$ is constant (let's say $=\alpha$) as well.
+\\Next we claim that $\theta=\Theta(t)=\frac{\langle T_1,T_2\rangle}{||T_1||||T_2||}=\langle T_1,T_2\rangle$ is constant. To see this,
+\begin{align*}
+	T_2=&Proj_{T_2}T_1+Proj_{T_2}N+Proj_{T_2}B_1
+	\\=&T_1\cos\theta+B_1\sin\theta \text{ because $T_2\perp N$}
+	\\\frac{N}{t'}=&\dot T_2
+	\\=&T_1'\cos\theta-T_1\sin\theta\theta'+B_1'\sin\theta+B_1\cos\theta\theta'
+	\\=&\kappa_1N\cos\theta-T_1\sin\theta\theta'-\tau_1N\sin\theta+B_1\cos\theta\theta'
+	\\=&-\sin\theta\theta'T_1+(\kappa_1\cos\theta-\tau_1\sin\theta)N+\cos\theta\theta'B_1\Rightarrow
+	\\-\sin\theta\theta'=&0=\cos\theta\theta'\Rightarrow
+	\\\theta'=&0
+\end{align*}
+So $\theta$ is constant. So, by matching coefficients we find,
+\begin{align*}
+	\cos\theta=&t'-f\kappa_1t' & \sin\theta=&f\tau_1t'
+\end{align*}
+Since the curves were distinct and the distance is constant, we know $f\neq0$, and since the curves are non-planar, we know $\tau_1\neq0$. So,
+\begin{align*}
+	\cot\theta=\frac{\cos\theta}{\sin\theta}=&\frac{t'-f\kappa_1t'}{f\tau_1t'}=\frac{1-f\kappa_1}{f\tau_1}\rightarrow
+	\\f\kappa_1+\cot\theta f\tau_1=&1\rightarrow \text{ let }a=f\kappa_1 \text{, and }b=\cot\theta f.
+\end{align*}
+Now, let us assume there is a non-planar Frenet curve $c_1$ in $\mathbb{R}^3$, and constants $a,b$ with $a\neq0$, such that for all $s$ (I'm assuming $c_1$ is parameterized by arc length) $a\kappa+b\tau=1$. We need to find a Bertrand pair for this curve. To do that, let $d=a$, and define a new curve, $c_2=c_1+dN_1$. The only thing we need to do is show that $c_2$ is a Frenet curve and that the two $N$'s define the same line in space.
+
 
 \newpage
 \section{Suppose $r=r(t)$ is a regular curve satisfying $r''=r'\times H$ for a constant vector $H$ (according to one source this is the equation of an electron moving under a magnetic field force). Prove that $\tau$ and $\kappa$ are constants.}

@@ -1,0 +1,50 @@
+\documentclass[12pt]{amsart}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts, comment, tikz}
+\usepackage[margin=0.65 in]{geometry}
+\renewcommand\thesubsection{\alph{subsection}}
+
+\begin{document}
+
+\title{Differential Geometry Homework 1}
+\author{Aaron Niskin \\PID: 3337729}
+\date{21 JAN 2015}
+\maketitle
+
+\section{Determine the curvature and the torsion of the curve given by the intersection of the surfaces $x^3=3a^2y$ and $2xz=a^2$}
+Firstly let us assume that $a\neq0$ which means $x,y,z\neq0$ so we can divide by them. Hence,
+\begin{align*}
+	8x^3z^3=&a^6 & &
+	\\24a^2yz^3=&a^6 & x=&3a^2y
+	\\24yz^3=&a^4 & x=&3a^2\frac{a^4}{24z^3}
+	\\y=&\frac{a^4}{24z^3} & x=&\frac{a^6}{8z^3}
+\end{align*}
+So, we can let $z=t$, and we have that the curve is, $c(t)=(\frac{a^6}{8t^3},\frac{a^4}{24t^3},t)$. So, next we find the arc-length parameter. To do that, we first find $||\dot c(t)||=||(\frac{-3a^6}{8t^4},\frac{-a^4}{8t^4},1)||=\sqrt{\frac{9a^{12}}{64t^8}+\frac{a^8}{64t^8}+1}\neq0$. So, let $s=\frac{t}{\sqrt{\frac{9a^{12}}{64t^8}+\frac{a^8}{64t^8}+1}}=\frac{8t^5}{\sqrt{9a^{12}+a^8+64t^8}}$ and $s$ is the arc-length parameter. Furthermore, $t'=\frac{1}{ds/dt}=\frac{1}{}$
+\begin{align*}
+	T=&\dot ct' %& N=& & B=&
+	\\=&
+\end{align*}
+
+\newpage
+\section{If $c$ is a closed curve of length $L$ on the unit sphere, show that:}
+\subsection{$\int_0^L\tau(s)ds=0$}
+First we can write $c$ in spherical coordinates as, $c(s)=(1,\varphi(s),\psi(s))$, where $\varphi$ is the polar angle, $\psi$ is the azimuthal angle, $1$ is the radius and $s$ is the arc-length parameter. Note: since $c$ is on the unit sphere, we know $\kappa\neq0$ everywhere. Furthermore,  Then, $T=(0,\varphi'(s),\psi'(s))\rightarrow(\varphi')^2+(\psi')^2}=1$. Next, $N=\frac{T'}{||T'||}=\frac{(0,\varphi''(s),\psi''(s))}{\sqrt{(\varphi''(s))^2+(\psi''(s))^2}}=\frac{(0,\varphi''(s),\psi''(s))}{\kappa}$. Note, $N'=-\kappa T+\tau B$
+\\
+\\
+\subsection{$\int_0^L\frac{\tau}{\kappa}ds=0$}
+
+\newpage
+\section{Prove that for any real number $r$ there exists a closed curve $c$ of length $L$, such that $\int_0^L\tau ds=r$.}
+
+\newpage
+\section{Provide a definition of convex curve in a plane and a proof of the Four Vertex Theorem (Theorem 2.33).}
+``A simply closed plane curve is called \textit{convex}, if the image set of the boundary is a convex subset $C\subseteq\mathbb{R}^2$. The convexity of a subset $C$ is defined in the usual way, namely, for any two points contained in $C$, also the segment joining these two points is completely contained in $C$.''
+\\In other words, a plane curve $c$ is called \textit{convex} if it is the boundary of a convex set in $\mathbb{R}^2$.
+\\
+\\Next, to prove the Four Vertex Theorem.
+\\
+
+\newpage
+\section{Suppose that a Frenet curve is an intersection of two regular (parameterized) surface elements. Show that if it is a line of curvature for both surfaces, then the surfaces intersect at a constant angle.}
+
+\end{document}
