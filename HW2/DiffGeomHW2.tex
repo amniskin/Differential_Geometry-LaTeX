@@ -14,40 +14,46 @@
 \section{Determine the curvature and the torsion of the curve given by the intersection of the surfaces $x^3=3a^2y$ and $2xz=a^2$}
 Firstly if $a=0$, then the resulting intersection is the $y,z$ plane and hence not a curve. So let $a\neq0$ which means $x,y,z\neq0$ so we can divide by them. Hence,
 \begin{align*}
-	8x^3z^3=&a^6 & &
-	\\24a^2yz^3=&a^6 & x=&3a^2y
-	\\24yz^3=&a^4 & x=&3a^2\frac{a^4}{24z^3}
-	\\y=&\frac{a^4}{24z^3} & x=&\frac{a^6}{8z^3}
+	8x^3z^3=&a^6 & x^3=&3a^2y
+	\\24a^2yz^3=&a^6 & x\frac{a^4}{4z^2}=&3a^2\frac{a^4}{24z^3}
+	\\24yz^3=&a^4 & x=&\frac{a^2}{2z}
+	\\y=&\frac{a^4}{24z^3} & &
 \end{align*}
-So, we can let $z=t$, and we have that the curve is, $c(t)=\left(\frac{a^6}{8t^3},\frac{a^4}{24t^3},t\right)$ (so formally this would be two curves, one for the positive $t$ and one for negative, and note that the denominators throughout this problem cannot be zero because $t$ has to be on one side of zero). $\dot c=\left(\frac{-3a^6}{8t^4},\frac{a^4}{8t^4},1\right)$, and $||\dot c||=\sqrt{\frac{9a^{12}}{64t^8}+\frac{a^8}{64t^8}+1}$. Hence, $T=\frac{8t^4}{\sqrt{9a^{12}+a^8+64t^8}}\left(\frac{-3a^6}{8t^4},\frac{a^4}{8t^4},1\right)=\frac{1}{\sqrt{9a^{12}+a^8+64t^8}}\left(-3a^6,a^4,8t^4\right)$.
-\\Next 
+So, we can let $z=t$, and we have that the curve is, $c(t)=\left(\frac{a^2}{2t},\frac{a^4}{24t^3},t\right)$ (so formally this would be two curves, one for the positive $t$ and one for negative, and note that the denominators throughout this problem cannot be zero because $t$ has to be on one side of zero). $\dot c=\left(\frac{-a^2}{2t^2},\frac{-a^4}{8t^4},1\right)$, and $||\dot c||=\sqrt{\frac{a^4}{4t^4}+\frac{a^8}{64t^8}+1}=\frac{\sqrt{64t^8+16a^4t^4+a^8}}{8t^4}=\frac{\sqrt{(a^4+8t^4)^2}}{8t^4}=\frac{8t^4+a^4}{8t^4}$. Hence, $T=\frac{8t^4}{8t^4+a^4}\left(\frac{-a^2}{2t^2},\frac{-a^4}{8t^4},1\right)=\frac{1}{8t^4+a^4}\left(-4a^2t^2,-a^4,8t^4\right)$.
 \begin{align*}
-	\dot T=&\frac{1}{\sqrt{9a^{12}+a^8+64t^8}}\left(0,0,32t^3\right)+\frac{-512t^7}{2\sqrt{9a^{12}+a^8+64t^8}^3}\left(-3a^6,a^4,8t^4\right)
-	\\=&\frac{2(9a^{12}+a^8+64t^8)}{2\sqrt{9a^{12}+a^8+64t^8}^3}\left(0,0,32t^3\right)-\frac{512t^7}{2\sqrt{9a^{12}+a^8+64t^8}^3}\left(-3a^6,a^4,8t^4\right)
-	\\=&\frac{1}{2\sqrt{9a^{12}+a^8+64t^8}^3}\left(-3a^6,a^4,64t^3(9a^{12}+a^8+64t^8)-4096t^{11}\right)
-	\\=&\frac{a^4}{2\sqrt{9a^{12}+a^8+64t^8}^3}\left(-3a^2,1,64a^4(9a^4+1)t^3\right)
+	\dot T=&\frac{1}{8t^4+a^4}\left(-8a^2t,0,32t^3\right)-\frac{32t^3}{(8t^4+a^4)^2}\left(-4a^2t^2,-a^4,8t^4\right)
+	\\=&\frac{8t^4+a^4}{(8t^4+a^4)^2}\left(-8a^2t,0,32t^3\right)-\frac{32t^3}{(8t^4+a^4)^2}\left(-4a^2t^2,-a^4,8t^4\right)
+	\\=&\frac{1}{(8t^4+a^4)^2}\left(-(8t^4+a^4)8a^2t+128a^2t^5,32a^4t^3,32t^3(8t^4+a^4-8t^4)\right)
+	\\=&\frac{1}{(8t^4+a^4)^2}\left(-64a^2t^5-8a^6t+128a^2t^5,32a^4t^3,32a^4t^3\right)
+	\\=&\frac{8a^2t}{(8t^4+a^4)^2}\left(8t^4-a^4,4a^2t^2,4a^2t^2\right)
 \end{align*}
-Since $T'=\dot Tt'=\frac{\dot T}{\dot s}$, where $s$ is the arc-length parameter, it suffices to find what $\frac{ds}{dt}$ ($\dot s$) is. Note, $s(t)=\int_{t_0}^t||\dot c(t)||dt=\int_{t_0}^t\sqrt{\frac{9a^{12}}{64t^8}+\frac{a^8}{64t^8}+1}dt=F(t)-F(t_0)$, where $\frac{dF}{dt}=||\dot c||=\sqrt{\frac{9a^{12}}{64t^8}+\frac{a^8}{64t^8}+1}$ (by the fundamental theorem of Calculus). Hence, $\frac{ds}{dt}=\frac{d}{dt}(F(t)-F(t_0))=\frac{dF}{dt}(t)=||\dot c||=\sqrt{\frac{9a^{12}}{64t^8}+\frac{a^8}{64t^8}+1}$. So, 
+Since $T'=\dot Tt'=\frac{\dot T}{\dot s}$, where $s$ is the arc-length parameter, it suffices to find what $\frac{ds}{dt}$ ($\dot s$) is. Note, $s(t)=\int_{t_0}^t||\dot c(t)||dt=F(t)-F(t_0)$, where $\frac{dF}{dt}=||\dot c||$ (by the fundamental theorem of Calculus). Hence, $\dot s=\frac{ds}{dt}=\frac{d}{dt}(F(t)-F(t_0))=\frac{dF}{dt}(t)=||\dot c||$. So, 
 \begin{align*}
-	T'=&\frac{a^4}{2\sqrt{9a^{12}+a^8+64t^8}^3}\left(-3a^2,1,64a^4(9a^4+1)t^3\right)/\sqrt{\frac{9a^{12}}{64t^8}+\frac{a^8}{64t^8}+1}
-	\\=&\frac{8t^4a^4}{2\sqrt{9a^{12}+a^8+64t^8}^3}\left(-3a^2,1,64a^4(9a^4+1)t^3\right)/\sqrt{9a^{12}+a^8+64t^8}
-	\\=&\frac{4t^4a^4}{\left(9a^{12}+a^8+64t^8\right)^2}\left(-3a^2,1,64a^4(9a^4+1)t^3\right)
+	T'=&\frac{8t^4}{8t^4+a^4}\frac{8a^2t}{(8t^4+a^4)^2}\left(8t^4-a^4,4a^2t^2,4a^2t^2\right)
+	\\=&\frac{64a^2t^5}{(8t^4+a^4)^3}\left(8t^4-a^4,4a^2t^2,4a^2t^2\right)
 \end{align*}
 So,
 \begin{align*}
-	\kappa=&||c''||
-	\\=&\left|\left|\frac{4t^4a^4}{\left(9a^{12}+a^8+64t^8\right)^2}\left(-3a^2,1,64a^4(9a^4+1)t^3\right)\right|\right|
-	\\=&\frac{4t^4a^4}{\left(9a^{12}+a^8+64t^8\right)^2}\left|\left|\left(-3a^2,1,64a^4(9a^4+1)t^3\right)\right|\right| \text{ b/c the constant is $\geq$ 0 }
-	\\=&\frac{4t^4a^4}{\left(9a^{12}+a^8+64t^8\right)^2}\left|\left|\left(-3a^2,1,64a^4(9a^4+1)t^3\right)\right|\right|
-	\\=&\frac{4t^4a^4}{\left(9a^{12}+a^8+64t^8\right)^2}\sqrt{9a^4+1+4096a^8(9a^4+1)^2t^6}
+	\kappa=&||c''||=||T'||
+	\\=&\left|\left|\frac{64a^2t^5}{(8t^4+a^4)^3}\left(8t^4-a^4,4a^2t^2,4a^2t^2\right)\right|\right|
+	\\=&\frac{64a^2t^5}{(8t^4+a^4)^3}\left|\left|\left(8t^4-a^4,4a^2t^2,4a^2t^2\right)\right|\right|
+	\\=&\frac{64a^2t^5}{(8t^4+a^4)^3}\sqrt{(8t^4-a^4)^2+16a^4t^4+16a^4t^4}
+	\\=&\frac{64a^2t^5}{(8t^4+a^4)^3}\sqrt{64t^8-16a^4t^4+a^8+16a^4t^4+16a^4t^4}
+	\\=&\frac{64a^2t^5}{(8t^4+a^4)^3}\sqrt{64t^8+16a^4t^4+a^8}
+	\\=&\frac{64a^2t^5}{(8t^4+a^4)^3}\sqrt{(8t^4+a^4)^2}
+	\\=&\frac{64a^2t^5}{(8t^4+a^4)^2}
 \end{align*}
+$T=\frac{1}{8t^4+a^4}\left(-4a^2t^2,-a^4,8t^4\right)$
+\\$N=\frac{1}{8t^4+a^4}\left(8t^4-a^4,4a^2t^2,4a^2t^2\right)$.
+\\So, $B=\frac{1}{(8t^4+a^4)^2}\left(-4a^6t^2-32a^2t^6,64t^8-8a^4t^4+16a^4t^4,-16a^4t^4+8a^4t^4-a^8\right)
+\\=\frac{1}{(8t^4+a^4)^2}\left(-4a^2t^2(8t^4+a^4),8t^4(8t^4+a^4),-a^4(8t^4+a^4)\right)=\frac{1}{8t^4+a^4}\left(-4a^2t^2,8t^4,-a^4\right)$
 \begin{align*}
 	\tau B=&N'+\kappa T
 	\\=&\left(\frac{T'}{\kappa}\right)'+\kappa T
-	\\=&\left(\frac{1}{\sqrt{9a^4+1+4096a^8(9a^4+1)^2t^6}}\left(-3a^2,1,64a^4(9a^4+1)t^3\right)\right)'+\kappa T
-	\\=&\left(\frac{12288a^8(9a^4+1)^2t^5}{\dot s(9a^4+1+4096(9a^4+1)^2a^8t^6)^{3/2}}\right)\left(-3a^2,1,64a^4(9a^4+1)t^3\right)
-	\\&\indent\indent+\frac{1}{\dot s\sqrt{9a^4+1+4096a^8(9a^4+1)^2t^6}}\left(0,0,192a^4(9a^4+1)t^2\right)
-	\\&\indent\indent+\kappa\frac{1}{\sqrt{9a^{12}+a^8+64t^8}}\left(-3a^6,a^4,8t^4\right)
+	\\=&\left(\frac{1}{8t^4+a^4}\left(8t^4-a^4,4a^2t^2,4a^2t^2\right)\right)'+\kappa T
+	\\=&\frac{-256t^7}{(8t^4+a^4)^3}\left(8t^4-a^4,4a^2t^2,4a^2t^2\right)+\frac{8t^4}{(8t^4+a^4)^2}\left(32t^3,8a^2t,8a^2t\right)+\frac{64a^2t^5}{(8t^4+a^4)^3}\left(-4a^2t^2,-a^4,8t^4\right)
+	\\ =&\frac{8t^5}{(8t^4+a^4)^3}\left(-8a^2(-4a^2t^2),-8a^2(8t^4),-8a^2(-a^4) \right)
+	\\=&\frac{-64a^2t^5}{(8t^4+a^4)^2}\left(\frac{1}{8t^4+a^4}\left(-4a^2t^2,8t^4,-a^4 \right)\right)=\frac{-64a^2t^5}{(8t^4+a^4)^2}B\Rightarrow\tau=\frac{-64a^2t^5}{(8t^4+a^4)^2}
 \end{align*}
 
 \newpage
@@ -60,31 +66,53 @@ Firstly we note that if the curve is planar then $\tau=0$ and the proof is done.
 	\\=&0\text{ because the three vectors must be the same at the endpoints (closed curve)}
 \end{align*}
 Now to prove our claim:
-\\Note that since the curve is on the unit sphere, the vectors $c,c',c\times c'$ form an orthonormal frame along the curve. Hence, $c''=\langle c'',c\rangle c+\langle c'',c'\rangle c'+\langle c'',c\times c'\rangle c\times c'$. But since $\langle c,c'\rangle=0$ (again, because it's on a sphere), we have that $0=\langle c,c'\rangle'=\langle c',c'\rangle+\langle c,c''\rangle\Rightarrow\langle c,c''\rangle=-\langle c',c'\rangle=-1$. Furthermore, $J=\det[c,c',c'']=\langle c'',c\times c'\rangle$. This last part can be seen because the determinant is the unique multi-linear map that sends $e_1,e_2,e_3$ (orthonormal basis) to 1. So that $c''=-c+Jc\times c'$ and $\kappa^2=||c''||^2=1+J^2$. K\"uhnel uses this to show that $\kappa^2>0$, but we can already see that $\kappa>1$ by considering the oscillating circle at that point (which has radius $1/\kappa$) that must have radius $\leq1$ if it's to be on $S^1$. Which means, $\kappa\geq1$. Either way, we have $\kappa>0$.
+\\Note that since the curve is on the unit sphere, the vectors $c,c',c\times c'$ form an orthonormal frame along the curve. Hence, $c''=\langle c'',c\rangle c+\langle c'',c'\rangle c'+\langle c'',c\times c'\rangle c\times c'$. But since $\langle c,c'\rangle=0$ (again, because it's on a sphere), we have that $0=\langle c,c'\rangle'=\langle c',c'\rangle+\langle c,c''\rangle\Rightarrow\langle c,c''\rangle=-\langle c',c'\rangle=-1$. Furthermore, $J=\det[c,c',c'']=\langle c'',c\times c'\rangle$. This last part can be seen because the determinant is the unique alternating multi-linear map that sends $e_1,e_2,e_3$ (orthonormal basis) to 1. So that $c''=-c+Jc\times c'$ and $\kappa^2=||c''||^2=1+J^2$. K\"uhnel uses this to show that $\kappa^2>0$, but we can already see that $\kappa>1$ by considering the oscillating circle at that point (which has radius $1/\kappa$) that must have radius $\leq1$ if it's to be on $S^1$. Which means, $\kappa\geq1$. Either way, we have $\kappa>0$.
 \\Furthermore, $T=c'$, $N=\frac{1}{\kappa}c''$, and $B=T\times N$. But $\langle T',c\rangle=\langle c'',c\rangle=-1\Rightarrow0=\langle T',c\rangle'=\langle T'',c\rangle+\langle T',c'\rangle=\langle T'',c\rangle+0\Rightarrow\langle T'',c\rangle=0$
 \begin{align*}
 	\tau=&\langle B,N'\rangle=-\langle B',N\rangle
 	\\=&\frac{-1}{\kappa}\langle B',T'\rangle
 	\\=&\frac{-1}{\kappa}\langle (T\times N)',T'\rangle
 	\\=&\frac{-1}{\kappa}\langle (\frac{1}{\kappa}T\times T')',T'\rangle
-	\\=&\frac{-1}{\kappa^2}\langle \frac{1}{\kappa}T'\times T'+\frac{1}{\kappa}T\times T''+\frac{-\kappa'}{\kappa^2}T\times T',T'\rangle
-	\\=&\frac{-1}{\kappa^2}\langle\frac{1}{\kappa}T\times T''+\frac{-\kappa'}{\kappa}T\times T',T'\rangle
+	\\=&\frac{-1}{\kappa}\langle \frac{1}{\kappa}T'\times T'+\frac{1}{\kappa}T\times T''+\frac{-\kappa'}{\kappa^2}T\times T',T'\rangle
+	\\=&\frac{-1}{\kappa}\langle\frac{1}{\kappa}T\times T''+\frac{-\kappa'}{\kappa}T\times T',T'\rangle
 	\\=&\frac{-1}{\kappa}\left(\langle\frac{1}{\kappa}T\times T'',T'\rangle+\langle\frac{-\kappa'}{\kappa^2}T\times T',T'\rangle\right)
 	\\=&\frac{-1}{\kappa^2}\langle T\times T'',T'\rangle
 	\\=&\frac{-1}{\kappa^2}\langle T\times T'',-c+Jc\times T\rangle
-	\\=&
+	\\=&\frac{-1}{\kappa^2}\langle T\times T'',-c-JT\times c\rangle
+	\\=&\frac{1}{\kappa^2}\left(\langle T\times T'',c\rangle+\langle T\times T'',JT\times c\rangle\right)
+	\\=&\frac{1}{\kappa^2}\langle T\times T'',c\rangle \text{ because }\langle T'',c\rangle=0 \text{ $T''$ is in the $T,T\times c$ plane which makes the above 0}
+	\\=&\frac{1}{\kappa^2}\det [c,T,T'']=\frac{-1}{\kappa^2}\det [T'',T,c]=\frac{1}{\kappa^2}\det [T'',c,T]=\frac{1}{\kappa^2}\langle c''',c\times c'\rangle=\frac{J'}{1+J^2}
 \end{align*}
+Since $J'=\langle c'',c\times c'\rangle'=\langle c''',c\times c'\rangle+\langle c'',c'\times c'\rangle+\langle c'',c\times c''\rangle=\langle c''',c\times c'\rangle$
+
 \subsection{$\int_0^L\frac{\tau}{\kappa}ds=0$}
 Firstly we note that if $\tau$ is constantly zero then the integral is obviously 0. Next we will prove that $\frac{\tau}{\kappa}=\left(\frac{\kappa'}{\tau\kappa^2}\right)'$, so by the fundamental theorem of calculus,
 \begin{align*}
-	\int_0^L\frac{\tau}{\kappa}ds=&\frac{\kappa'(L)}{\tau(L)\kappa^2(L)}-\frac{\kappa'(0)}{\tau(0)\kappa^2(0)}=0
+	\int_0^L\frac{\tau}{\kappa}ds=&\frac{\kappa'(L)}{\tau(L)\kappa^2(L)}-\frac{\kappa'(0)}{\tau(0)\kappa^2(0)}=0 \text{ by periodicity}.
 \end{align*}
-
+If we consider the oscillating sphere (which must be the same sphere), we find that the center of the sphere is given by $m=c+\frac{1}{\kappa}N-\frac{\kappa'}{\tau\kappa^2}B$ So that
+\begin{align*}
+	0=&m'=(c+\frac{1}{\kappa}N-\frac{\kappa'}{\tau\kappa^2}B)'
+	\\=&T+\frac{-\kappa'}{\kappa^2}N+\frac{1}{\kappa}\left(-\kappa T+\tau B\right)-\left(\frac{\kappa'}{\tau\kappa^2}\right)'B+\frac{\kappa'}{\kappa^2}N
+	\\=&\left(\frac{\tau}{\kappa}-\left(\frac{\kappa'}{\tau\kappa^2}\right)'\right)B\Rightarrow\frac{\tau}{\kappa}-\left(\frac{\kappa'}{\tau\kappa^2}\right)'=0.
+\end{align*}
+\begin{comment}
+Just in case, let us prove that the oscillating sphere has center $m=c+\frac{1}{\kappa}N-\frac{\kappa'}{\tau\kappa^2}B$. Well, we want the sphere to have a point of contact of third order.
+\end{comment}
+Note: this works even if $\tau$ is zero on intervals or discrete points. Since we're assuming $\frac{\tau}{\kappa}$ is integrable (otherwise the question is nonsense), we know the set of discontinuities of $\frac{\tau}{\kappa}$ must have measure zero and therefore the zeros of $\tau$ cannot be dense unless $\tau$ is constantly zero. For simplicity of the proof, let us assume that $\tau$ is only zero on the interval $(a,b)$ for some $0\leq a<b\leq L$. Then, 
+\begin{align*}
+	\int_0^L\frac{\tau}{\kappa}ds=&\int_0^a\frac{\tau}{\kappa}ds+\int_a^b\frac{\tau}{\kappa}ds+\int_b^L\frac{\tau}{\kappa}ds
+	\\=&\lim\limits_{x\to a}\int_0^x\frac{\tau}{\kappa}ds+\int_a^b0ds+\lim\limits_{x\to b}\int_x^L\frac{\tau}{\kappa}ds
+	\\=&\lim\limits_{x\to a}\frac{\kappa'(x)}{\tau(x)\kappa^2(x)}-\frac{\kappa'(0)}{\tau(0)\kappa^2(0)}+\frac{\kappa'(L)}{\tau(L)\kappa^2(L)}-\lim\limits_{x\to b}\frac{\kappa'(x)}{\tau(x)\kappa^2(x)}
+	\\=&\lim\limits_{x\to a}\frac{\kappa'(x)}{\tau(x)\kappa^2(x)}-\lim\limits_{x\to b}\frac{\kappa'(x)}{\tau(x)\kappa^2(x)}
+\end{align*}
+But $\lim\limits_{x\to a}\frac{\kappa'(x)}{\tau(x)\kappa^2(x)}-\lim\limits_{x\to b}\frac{\kappa'(x)}{\tau(x)\kappa^2(x)}=0$ because $\tau=0$ for all $t\in(a,b)$, and this curve is on a sphere. That means the curve is an arc of a circle on the sphere on the interval $(a,b)$. But then $\lim\limits_{x\to a}\kappa=\kappa_0=\lim\limits_{x\to b}\kappa$, and $\lim\limits_{x\to a}\kappa'=\lim\limits_{x\to b}\kappa'$ and also, $\lim\limits_{x\to a}\tau=\lim\limits_{x\to b}\tau$.
+\\This argument immediately generalizes to finitely many intervals and discreet points.
 
 \newpage
-\section{Prove that for any real number $c$ there exists a closed curve $r$ of length $L$, such that $\int_0^L\tau ds=c$.}
+\section{Prove that for any real number $c$ there exists a closed $\mathcal{C}^3$ curve $r$ of length $L$, such that $\int_0^L\tau ds=c$.}
 Let $L,c\in\mathbb{R}_+$ ($\neq0$ because that case was done in question 2 and for negatives, just consider the reverse of our construction). We will define a curve, $r$ (parameterized by arc-length), in 4 parts such that $r$ has length $L$ with total torsion $c$. Part 1 will be $[0,\alpha]$ for $\alpha=L/10$, part two will be a curve on a sphere with $s\in[\alpha,\beta]$, for some $\beta\leq 3L/10$, then part three will be a plane curve for $s\in[\beta,\gamma]$ for some $\gamma<L$, and part four will be another curve on a sphere with $s\in[\gamma,L]$.
-\\Part 1 ($s\in[0,\beta]$): $r(t)=(a\cos(t),a\sin(t),bt)$, for some $a\in\mathbb{R}$ (to be figured out later and assumed positive for our purposes).
+\\Part 1 ($s\in[0,\alpha]$): $r(t)=(a\cos(t),a\sin(t),bt)$, for some $a\in\mathbb{R}$ (to be figured out later and assumed positive for our purposes).
 \\Then, $\dot r=(-a\sin(t),a\cos(t),b)\rightarrow||\dot r||=\sqrt{a^2+b^2}$, so that $s(t)=\int_0^t\sqrt{a^2+b^2}dx=\sqrt{a^2+b^2}t$, and $r=r(s)=\left(a\cos\left(\frac{s}{\sqrt{a^2+b^2}}\right),a\sin\left(\frac{s}{\sqrt{a^2+b^2}}\right),\frac{bs}{\sqrt{a^2+b^2}}\right)$.
 \\So, $T=\left(\frac{-a}{\sqrt{a^2+b^2}}\sin\left(\frac{s}{\sqrt{a^2+b^2}}\right),\frac{a}{\sqrt{a^2+b^2}}\cos\left(\frac{s}{\sqrt{a^2+b^2}}\right),\frac{b}{\sqrt{a^2+b^2}}\right)$,
 \\and $r''=T'=\left(\frac{-a}{a^2+b^2}\cos\left(\frac{s}{\sqrt{a^2+b^2}}\right),\frac{-a}{a^2+b^2}\sin\left(\frac{s}{\sqrt{a^2+b^2}}\right),0\right)\Rightarrow\kappa=\frac{|a|}{a^2+b^2}=\frac{a}{a^2+b^2}$.
@@ -95,9 +123,9 @@ Let $L,c\in\mathbb{R}_+$ ($\neq0$ because that case was done in question 2 and f
 	\\=&\left(\frac{1}{\sqrt{a^2+b^2}}\sin\left(\frac{s}{\sqrt{a^2+b^2}}\right),\frac{-1}{\sqrt{a^2+b^2}}\cos\left(\frac{s}{\sqrt{a^2+b^2}}\right),0\right)+\kappa T
 	\\=&\left(\frac{a^2+b^2-a^2}{\sqrt{a^2+b^2}^3}\sin\left(\frac{s}{\sqrt{a^2+b^2}}\right),\frac{-a^2-b^2+a^2}{\sqrt{a^2+b^2}^3}\cos\left(\frac{s}{\sqrt{a^2+b^2}}\right),\frac{ab}{\sqrt{a^2+b^2}^3}\right)
 	\\=&\frac{b}{a^2+b^2}\left(\frac{b}{\sqrt{a^2+b^2}}\sin\left(\frac{s}{\sqrt{a^2+b^2}}\right),\frac{-b}{\sqrt{a^2+b^2}}\cos\left(\frac{s}{\sqrt{a^2+b^2}}\right),\frac{a}{\sqrt{a^2+b^2}}\right)\implies
-	\\\tau=&\frac{b}{\sqrt{a^2+b^2}}
+	\\\tau=&\frac{b}{a^2+b^2}
 \end{align*}
-Then, $\int_0^\alpha\tau ds=\frac{b\alpha}{\sqrt{a^2+b^2}}$. But we want $\alpha=2n\pi\sqrt{a^2+b^2}$, so that things will play out nicely in parts 2,3, and 4. So $\int_0^\alpha\tau ds=\frac{2n\pi\sqrt{a^2+b^2}b}{\sqrt{a^2+b^2}}=2n\pi b$. By keeping $b$ constant and letting $n\to \infty$ (hence $a\to0$) we see $\int_0^\alpha\tau ds\to\infty$. On the other hand, by setting $b=0$ (hence $2n\pi a=\alpha=L/10$) we see that $\int_0^\alpha\tau ds=0$. So, for any positive $c\in\mathbb{R}$, we can find $a,b,n$ such that $\int_0^\alpha\tau ds=c$. Next we will connect the two endpoints of this helix in a way such that the total torsion is 0.
+Then, $\int_0^\alpha\tau ds=\frac{b\alpha}{a^2+b^2}$. But we want $\alpha=2n\pi\sqrt{a^2+b^2}$, so that things will play out nicely in parts 2,3, and 4. So $\int_0^\alpha\tau ds=\frac{2n\pi b}{\sqrt{a^2+b^2}}$. By letting $a=0$, $n\to \infty$ (hence $b\to0$) we see $\int_0^\alpha\tau ds\to\infty$. On the other hand, by setting $b=0$ (hence $2n\pi a=\alpha=L/10$) we see that $\int_0^\alpha\tau ds=0$. So, for any positive $c\in\mathbb{R}$, we can find $a,b,n$ such that $\int_0^\alpha\tau ds=c$. Next we will connect the two endpoints of this helix in a way such that the total torsion is 0.
 \\Part 2 ($[\alpha,\beta]$ on the sphere): In particular, this portion will be on the oscillating sphere at the point $s=\alpha$. This will be any regular curve of length $\leq L/5$ on said sphere that ends on the great circle parallel to the plane defined by $T(\alpha)$ and the line segment connecting $r(0)$ with $r(\alpha)$ (the two ends of the helix). Let us call this endpoint of part 2 of this curve, $d$. The idea is that part 3 will be a plane curve connecting to the same point on the oscillating sphere at the bottom of the helix, thereby making that into a pseudo-closed curve on a sphere and by question 2, the total torsion 0.
 \\Part 3 ($[\beta,\gamma]$) is just any plane curve that smoothly connects the point $d$ from above to the corresponding point $d'$ on the oscillating sphere at $r(0)$ in such a way that it is a continuation of part 2 on the sphere.
 \\Part 4 ($[\gamma,L]$): Essentially a continuation of part two but on the oscillating sphere at $r(0)$. Note: $\int_\alpha^\beta\tau ds+\int_\gamma^L\tau ds=0$ because it is the total torsion of a closed curve on a sphere.
@@ -132,6 +160,6 @@ Then, $\int_0^\alpha\tau ds=\frac{b\alpha}{\sqrt{a^2+b^2}}$. But we want $\alpha
 
 \newpage
 \section{Suppose that a Frenet curve is an intersection of two regular (parameterized) surface elements. Show that if it is a line of curvature for both surfaces, then the surfaces intersect at a constant angle.}
-Check page 266 of the other diff geom book.
+page 277
 
 \end{document}
