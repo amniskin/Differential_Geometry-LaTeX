@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1423668181 "DiffGeomHW2.tex" "DiffGeomHW2.pdf" "DiffGeomHW2" 1423668182
+["pdflatex"] 1423669933 "DiffGeomHW2.tex" "DiffGeomHW2.pdf" "DiffGeomHW2" 1423669934
   "/usr/local/texlive/2012/texmf-dist/tex/context/base/supp-pdf.mkii" 1337017135 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "/usr/local/texlive/2012/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1284331290 1458 43ab4710dc82f3edeabecd0d099626b2 ""
   "/usr/local/texlive/2012/texmf-dist/tex/generic/oberdiek/etexcmds.sty" 1335995445 7612 c47308d923ec19888707b0f1792b326a ""
@@ -93,8 +93,8 @@
   "/usr/local/texlive/2012/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty" 1203727794 274 4cad6e665cc93ac2ac979039a94fa1e1 ""
   "/usr/local/texlive/2012/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty" 1203877327 325 2bcd023400636339210573e2b3ee298b ""
   "/usr/local/texlive/2012/texmf-dist/tex/latex/xcolor/xcolor.sty" 1169481954 55224 a43bab84e0ac5e6efcaf9a98bde73a94 ""
-  "DiffGeomHW2.aux" 1423668182 1371 055b1675ed1c5a77f8e0c2cdb321e0d3 ""
-  "DiffGeomHW2.tex" 1423668181 20118 18da0a9536bd5a12e24bd79c2587741f ""
+  "DiffGeomHW2.aux" 1423669934 1371 055b1675ed1c5a77f8e0c2cdb321e0d3 ""
+  "DiffGeomHW2.tex" 1423669933 20128 fd7b0350ecfa974361bb56b18c5da7c0 ""
   (generated)
   "DiffGeomHW2.aux"
   "DiffGeomHW2.log"
