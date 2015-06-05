@@ -163,7 +163,7 @@ Then, $\int_0^\alpha\tau ds=\frac{b\alpha}{a^2+b^2}$. But we want $\alpha=2n\pi\
 \begin{comment}
 	page 277
 \end{comment}
-Let $M,N$ be surfaces in $\mathbb{R}^3$ with surface elements $f,g:U\to\mathbb{R}^3$ respectively and let $c$ be a line of curvature for both surfaces. Since $c$ is a line of curvature for both surfaces, for each $p\in U$, we can set a basis for $T_p\mathbb{R}^2$, $u_1,u_2$ such that $\frac{\partial f}{\partial u_1}(p)(u_1)=T=\frac{\partial g}{\partial u_1}(p)(u_1)$. (Note that here we're assuming that both surface elements have the same domain simply for simplicity. It is not a requirement for the proof, but it makes notation easier for the reader. Otherwise we would have to filter everything through $t$ and everything would work out the same.) Ultimately we will show that $\frac{d}{dt}\langle \nu_N(p)(c(t)),\nu_M(p)(c(t))\rangle=0$.
+Let $M,N$ be surfaces in $\mathbb{R}^3$ with surface elements $f,g:U\to\mathbb{R}^3$ respectively and let $c$ be a line of curvature for both surfaces. Define functions $u_1,u_2$ such that $c(t)=f(u_1(t),u_2(t))$ for all $t$ we can set a basis for $T_{p}U$, $u_1,u_2$ such that $\frac{\partial f}{\partial u_1}(p)=T=\frac{\partial g}{\partial u_1}(p)$. (Note that here we're assuming that both surface elements have the same domain simply for simplicity. It is not a requirement for the proof, but it makes notation easier for the reader. Otherwise we would have to filter everything through $t$ and everything would work out the same.) Ultimately we will show that $\frac{d}{dt}\langle \nu_N(c(t)),\nu_M(c(t))\rangle=0$.
 
 First we will notice that 
 \begin{align*}
@@ -174,7 +174,7 @@ First we will notice that
 \end{align*}
 Furthermore, there are $\lambda_M,\lambda_N\in\mathbb{R}$ such that $L_M(T)=\lambda_MT$ and $L_N(T)=\lambda_NT$ because $T$ is an eigenvector of $L$ for both surfaces, being a line of curvature and all. Hence,
 \begin{align*}
-	\frac{d}{du_1}\left\langle\nu_N,\nu_M\right\rangle=&\left\langle\frac{d\nu_N}{dt},\nu_M\right\rangle+\left\langle\frac{d\nu_M}{dt},\nu_N\right\rangle
+	\frac{d}{dt}\left\langle\nu_N,\nu_M\right\rangle=&\left\langle\frac{d\nu_N}{dt},\nu_M\right\rangle+\left\langle\frac{d\nu_M}{dt},\nu_N\right\rangle
 	\\=&\left\langle\frac{\partial\nu_N}{\partial u_1}\frac{du_1}{dt},\nu_M\right\rangle+\left\langle\frac{\partial\nu_M}{\partial u_1}\frac{du_1}{dt},\nu_N\right\rangle
 	\\=&\frac{du_1}{dt}\left\langle\frac{\partial\nu_N}{\partial u_1},\nu_M\right\rangle+\frac{du_1}{dt}\left\langle\frac{\partial\nu_M}{\partial u_1},\nu_N\right\rangle
 	\\=&\frac{du_1}{dt}\left\langle-\lambda_NT,\nu_M\right\rangle+\frac{du_1}{dt}\left\langle-\lambda_MT,\nu_N\right\rangle

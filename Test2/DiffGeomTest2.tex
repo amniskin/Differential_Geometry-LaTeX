@@ -1,0 +1,48 @@
+\documentclass[12pt]{amsart}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts, comment, tikz}
+\usepackage[margin=0.65 in]{geometry}
+\renewcommand\thesubsection{\alph{subsection}}
+\newcommand{\parti}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\inn}[1]{\left\langle #1\right\rangle}
+\newcommand{\ka}[0]{\kappa}
+\newcommand{\la}[0]{\lambda}
+\newcommand{\na}{\nabla}
+
+\begin{document}
+
+\title{Differential Geometry Test (continued)}
+\author{Aaron Niskin \\PID: 3337729}
+\date{31 APR 2015}
+\maketitle
+\begin{enumerate}
+	\item Curvature tensor: Given a connection $\na$, the associated curvature tensor, is a (0,3) tensor defined by,
+	\begin{equation*}
+	 	$R^\na(X,Y)Z=\na_X\na_YZ-\na_Y\na_XZ-\na{[X,Y]}Z$
+	\end{equation*}
+	If $T$ is a (0,p) tensor field, then $\na_XT$ is a (0,p) tensor defined by,
+	\begin{equation*}
+		(\na_XT)(X_1,...,X_p)=X(T(X_1,...,X_p))-T(\na_XX_1,X_2,...,X_p)-...-T(X_1,...,X_{p-1},\na_XX_p)
+	\end{equation*}
+	The sectional curvature is defined by
+	\begin{equation*}
+		K(X,Y)=\frac{g(R(X,Y)Y,X)}{g(X,X)g(Y,Y)-(g(X,Y))^2}
+	\end{equation*}
+	\item Prove the symmetries of the curvature tensor.
+	\begin{enumerate}
+		\item $R(X,Y)Z=\na_X\na_YZ-\na_Y\na_XZ-\na_{[X,Y]}Z=-(\na_Y\na_XZ-\na_X\na_YZ-\na_{[Y,X]}Z)=-R(Y,X)Z$
+		\item For this, it is sufficient to prove that this property holds at every point. So pick a point $p\in M$, then every tangent vector can be expressed as $\sum\alpha^i\parti{}{x^i}$, where $\alpha^i$ are constants. Then, since $[\parti{}{x^i},\parti{}{x^j}]=0$, we have,
+		\begin{aligh*}
+			
+		\end{aligh*}
+
+	\end{enumerate}
+	\newpage
+	\item Schur's Theorem (6.5,6.6,6.7)
+
+	\newpage
+	\item The cross product makes $\mathbb{R}^3$ into a Lie Algebra. What Lie Group has a Lie Algebra isomorphic to it?
+\end{enumerate}
+
+
+\end{document}

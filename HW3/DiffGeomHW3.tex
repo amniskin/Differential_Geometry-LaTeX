@@ -1,0 +1,160 @@
+\documentclass[12pt]{amsart}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts, comment, tikz}
+\usepackage[margin=0.65 in]{geometry}
+\renewcommand\thesubsection{\alph{subsection}}
+\newcommand{\parti}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\inn}[1]{\left\langle #1\right\rangle}
+
+\begin{document}
+
+\title{Differential Geometry Homework 3}
+\author{Aaron Niskin \\PID: 3337729}
+\date{20ish FEB 2015}
+\maketitle
+
+\section{}Show that the lines of curvature on a surface without umbilic points are determined by the equation
+\begin{align*}det\left(\begin{array}{ccc}
+	(\dot u^1)^2 & \dot u^1\dot u^2 & (\dot u^2)^2
+	\\g_{11} & g_{12} & g_{22}
+	\\h_{11} & h_{12} & h_{22}
+\end{array}\right)=0
+\end{align*}
+For this it might be easiest to show that necessarily, this matrix has rank $\leq2$.
+\\
+\\
+\\
+\par Let $f$ be a parameterized surface element without umbilics whose principal curvatures are $\kappa_1\neq \kappa_2$. Finally, let $c(t)=f(u^1(t),u^2(t))$ and let $c$ be a line of curvature (WLOG $L(c'(t))=\kappa_1c'(t)$). Since $L(\parti{f}{u_i})=h_i^j\parti{f}{u_j}$, and $h_i^j=h_{ik}g^{kj}$, we know
+\begin{align*}
+	\left(\begin{array}{cc}
+		h_{11}g^{11}+h_{12}g^{21} & h_{21}g^{11}+h_{22}g^{21}
+		\\h_{11}g^{12}+h_{12}g^{22} & h_{21}g^{12}+h_{22}g^{22}
+	\end{array}\right)
+	\left(\begin{array}{c}
+		\dot u^1
+		\\\dot u^2
+	\end{array}\right)=&
+	\kappa_1\left(\begin{array}{c}
+		\dot u^1
+		\\\dot u^2
+	\end{array}\right)\Rightarrow
+	\\
+	\begin{array}{c}
+		(h_{11}g^{11}+h_{12}g^{21})\dot u^1+(h_{21}g^{11}+h_{22}g^{21})\dot u^2=\kappa_1\dot u^1
+		\\(h_{11}g^{12}+h_{12}g^{22})\dot u^1+(h_{21}g^{12}+h_{22}g^{22})\dot u^2=\kappa_1\dot u^2
+	\end{array}
+\end{align*}
+Multiplying by $\dot u^2$ and $\dot u^1$ in the first and second equations respectively, then subtracting one from the other, we find,
+\begin{align*}
+	(h_{11}g^{11}+h_{12}g^{21}-h_{21}g^{12}-h_{22}g^{22})\dot u^1\dot u^2+(h_{21}g^{11}+h_{22}g^{21})(\dot u^2)^2-(h_{11}g^{12}+h_{12}g^{22})(\dot u^1)^2=0
+\end{align*}
+Next noting that the inverse of a symmetric 2x2 matrix is given by
+$\left(\begin{array}{cc}
+	g_{11} & g_{12}
+	\\g_{21} & g_{22}
+\end{array}\right)^{-1}=\frac{1}{det(g_{ij})}\left(\begin{array}{cc}
+	g_{22} & -g_{12}
+	\\-g_{12} & g_{11}
+\end{array}\right)$, we see that $g^{11}=\alpha g_{22}$, $g^{12}=-\alpha g_{12}$, $g^{22}=\alpha g_{11}$ where $\alpha=\frac{1}{\det(g_{ij})}$
+\begin{align*}
+	(h_{11}g_{22}-h_{22}g_{11})\dot u^1\dot u^2+(h_{12}g_{22}-h_{22}g_{12})(\dot u^2)^2+(h_{11}g_{12}-h_{12}g_{11})(\dot u^1)^2=0
+\end{align*}
+\begin{comment}
+\par Let $f$ be a parameterized surface element without umbilics whose principal curvatures (with judicious choice of basis) are $k_1\parti{f}{u^1}=L(\parti{f}{u^1})$ and $k_2\parti{f}{u^2}=L(\parti{f}{u^2})$. Let $k_1\neq k_2$ (so that $\inn{\parti{f}{u^1},\parti{f}{u^2}}=0$). And finally, let $c(t)=f(u^1(t),u^2(t))$.
+\begin{align*}
+	\det\left(\begin{array}{ccc}
+	(\dot u^1)^2 & \dot u^1\dot u^2 & (\dot u^2)^2
+	\\g_{11} & g_{12} & g_{22}
+	\\h_{11} & h_{12} & h_{22}
+\end{array}\right)=&-\det\left(\begin{array}{ccc}
+	(\dot u^1(t))^2 & \dot u^1(t)\dot u^2(t) & (\dot u^2(t))^2
+	\\\inn{\parti{f(c(t))}{u^1},\parti{f(c(t))}{u^1}} & \inn{\parti{f(c(t))}{u^1},\parti{f(c(t))}{u^2}} & \inn{\parti{f(c(t))}{u^2},\parti{f(c(t))}{u^2}}
+	\\\inn{\parti{\nu}{u^1},\parti{\nu}{u^1}} & \inn{\parti{\nu}{u^1},\parti{\nu}{u^2}} & \inn{\parti{\nu}{u^2},\parti{\nu}{u^2}}
+\end{array}\right)
+\end{align*}
+But, $h_{ij}=\sum h_i^kg_{kj}=\sum\inn{L(\parti{f}{u^i}),\parti{f}{u^k}}\inn{\parti{f}{u^k},\parti{f}{u^j}}=\delta_i^jk_i||\parti{f}{u^i}||^4=\delta_i^jk_ig_{ij}^2$ and $g_{12}=\inn{\parti{f}{u^1},\parti{f}{u^2}}=0$. So,
+\begin{align*}
+	\left(\begin{array}{ccc}
+	(\dot u^1)^2 & \dot u^1\dot u^2 & (\dot u^2)^2
+	\\g_{11} & g_{12} & g_{22}
+	\\h_{11} & h_{12} & h_{22}
+\end{array}\right)=&
+\left(\begin{array}{ccc}
+	(\dot u^1)^2 & \dot u^1\dot u^2 & (\dot u^2)^2
+	\\g_{11} & 0 & g_{22}
+	\\k_1g_{11}^2 & 0 & k_2g_{22}^2
+\end{array}\right)
+\end{align*}
+If $k_1=\lambda/g_{11}$ and $k_2=\lambda/g_{22}$ for some $\lambda\in\mathbb{R}$, then we're done. So let's assume that this is not the case. We need to show that there are real numbers $a,b$ such that $(\dot u^1)^2=ag_{11}+bk_1g_{11}^2$, $\dot u^1\dot u^2=ag_{12}$
+\end{comment}
+\\
+\par Now, let us assume the premise of the converse. Then, either $(g_{ij})=(0)$, $(h_{ij})=(0)$ which can't happen because $(g_{ij})$ must be invertible and $\kappa_1\neq\kappa_2$ because there are no umbilics, so
+\begin{align*}
+	((\dot u^1)^2,\dot u^1\dot u^2,(\dot u^2)^2)=\alpha(g_{11},g_{12},g_{22})+\beta(h_{11},h_{12},h_{22})
+\end{align*}
+But then,
+\begin{align*}
+	(\dot u^1)^2+2\dot u^1\dot u^2+(\dot u^2)^2=&\alpha(g_{11}+2g_{12}+g_{22})+\beta(h_{11}+2h_{12}+h_{22})
+	\\(\dot u^1+\dot u^2)^2=&
+\end{align*}
+
+\newpage
+\section{}Let $\nu:M^2\to S^2$ be the Gauss map of a parameterized surface element $M^2=f(U)$. Show that
+\begin{align*}
+	Area(\nu(M^2))=&\int_{M^2}KdS.
+\end{align*}
+where $K$ is the Gaussian curvature of $M^2$.
+
+\newpage
+\section{}
+A surface $f:U\to\mathbb{R}^3$ is called a \textit{ruled surface} if has a $\mathcal{C}^2$ parameterization of the form,
+\begin{align*}
+	f(u,v)=&c(u)+vX(u)
+\end{align*}
+where $c$ is a differentiable (but not necessarily regular) curve and $X$ is a non-vanishing vector field along $c$.
+\par
+A ruled surface is called \textit{developable} if it can be mapped locally to the plane in a way that preserves the first fundamental form and all the generating lines (lines defined by fixing $u$ and letting $v$ run free in the definition of a \textit{ruled surface}).
+\par This question is to prove the equivalence of three properties of ruled surfaces.
+\par 1) The surface is developable
+\par 2) $K\equiv0$
+\par 3) Along every one of the generators (the aforementioned lines), all surface normals are parallel, i.e., the Gauss map is constant along each line.
+\newline
+\par $(2)\iff(3)$: Since, $X$ is along the surface at every point on $c$, we know
+\begin{align*}
+	\langle\nu,X\rangle=&0, & \text{and}& & \langle\nu,c'+vX'\rangle=\left\langle\nu,\frac{\partial f}{\partial u}\right\rangle=&0
+	\\\left\langle\frac{\partial\nu}{\partial v},X\right\rangle=&0 & & & \inn{\parti{\nu}{v},c'+vX'}+\langle\nu,X'\rangle=&0
+\end{align*}
+Since the vector $\parti{\nu}{v}$ is tangent to the surface, somehow $\parti{\nu}{v}=0\iff\langle\nu,X'\rangle=0$. To see this, we first note that if $\parti{\nu}{v}=0$, then $\inn{\nu,X'}=0$ is obvious. For the other direction, if $\inn{\nu,X'}=0$, then $0=\inn{\parti{\nu}{v},c'+vX'}=\inn{\parti{\nu}{v},\parti{f}{u}}=0$. Since $\parti{\nu}{v}\in T_pf$, we know $\parti{\nu}{v}=0$.
+\par Since $X=\parti{f}{v}$, then $X'=\frac{\partial^2f}{\partial u\partial v}$. Hence $\parti{\nu}{v}=0\iff0=\inn{\nu,X'}=h_{12}$.
+
+\newpage
+\section{}Suppose we are given a surface element with $K<0$. Show that this surface is a minimal surface if and only if the asymptotic curves at each point are perpendicular to one another.
+
+\newpage
+\section{}The \textit{rotational torus} is given by
+\begin{align*}
+	f(u,v)=&\big((a+b\cos u)\cos v,(a+b\cos u)\sin v,b\sin u \big),
+\end{align*}
+$0\leq u,v\leq2\pi$, cf. Figure 3.3. Here $a>b>0$ are arbitrary (but fixed) parameters. Calculate the \textit{total mean curvature} of this torus as the surface integral of the function $(H(u,v))^2,0\leq u,v\leq2\pi$, explicitly as a function of $a$ and $b$. What is the smallest value of the total mean curvature?
+\\Hint: The minimum occurs at $a=\sqrt2b$. Note that the integral is invariant under homotheties $x\to\lambda x$ of space with a fixed number $\lambda$.
+\\Remark: The \textit{Willmore conjecture} states that there is no immersed torus in $\mathbb{R}^3$ which has smaller total mean curvature than the above rotational torus, no matter what it looks like geometrically. This conjecture has been verified in many cases, but in general it is still open (see [\textbf{17}], 5.1-5.3, 6.5).
+
+\newpage
+\section{}For a surface element $f:U\to\mathbb{R}^3$ we define a \textit{parallel surface} at distance $\epsilon$ by
+\begin{align*}
+	f_\epsilon(u_1,u_2):=f(u_1,u_2)+\epsilon\dot\nu(u_1,u_2),
+\end{align*}
+cf. Section 3D. $\nu$ is the unit normal of the surface $f$. Decide for which $\epsilon$ this defines a regular surface, and show the following.
+\subsection{} The principal curvatures of $f_\epsilon$ and $f$ have a ration of $\kappa_i^{(\epsilon)}=\kappa_i/(1-\epsilon\kappa_i)$
+\subsection{} In case $f$ has constant mean curvature $H\neq0$, $f_\epsilon$ has constant Gaussian curvature for $\epsilon=\frac{1}{2H}$.
+\setcounter{subsection}{0}
+\\
+\par Firstly, 
+\subsection{}
+
+\newpage
+\section{}Calculate the function $\varphi_1,\varphi_2,\varphi_3$ for the Henneberg surface and verify the relation $\varphi_1^2+\varphi_2^2+\varphi_3^2=0$.
+
+
+
+\end{document}

@@ -1,0 +1,215 @@
+\documentclass[12pt]{amsart}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts, comment, tikz}
+\usepackage[margin=0.65 in]{geometry}
+\newcommand{\q}[1]{\item #1}
+\newcommand{\p}[1]{\item #1}
+\renewcommand\thesubsection{\arabic{subsection}}
+\renewcommand\thesubsubsection{\indent\alph{subsubsection}}
+\newcommand{\parti}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\inn}[1]{\left\langle #1\right\rangle}
+
+\begin{document}
+
+\title{Differential Geometry Homework 3}
+\author{Aaron Niskin \\PID: 3337729}
+\date{20ish FEB 2015}
+\maketitle
+
+\section{Topics from the theory:}
+\begin{enumerate}
+
+\q{Definitions of regular and Frenet curve. Fundamental theorem of the local theory of curves - proof. (It could be from the book for $\mathbb{R}^n$ or from the lectures for $\mathbb{R}^3$).}
+
+\newpage
+\q{Definitions of closed curve, simply closed curve, and convex curve. Proof of the four vertex theorem.}
+
+\newpage
+\q{Definition of closed curve. Proof of Fenchel's theorem about the total curvature of space curve.}
+\par A closed curve is a regular curve $c:[a,b]\to\mathbb{R}^n$ such that there is a second regular curve $\tilde c:\mathbb{R}\to\mathbb{R}^n$ with the property that $\forall m\in\mathbb{Z}, \tilde c(x+m(b-a))=c(x)$ and $\forall x\in[a,b],\tilde c(x)=c(x)$.
+\par Fenchel's theorem states: For every closed and regular space curve $c:[a,b]\to\mathbb{R}^3$ of total length $l$ on has the equality
+\begin{align*}
+	\int_0^l\kappa ds=\int_a^b\kappa(t)||\dot c(t)||dt\geq2\pi,
+\end{align*}
+with equality if and only if the curve is a convex, simple plane curve.
+\par It's theorem 2.34 on page 46.
+
+\newpage
+\q{Definition of regular surface element, first and second fundamental forms, Gauss map. Proof of Theorem 3.14 on p. 73 from the book.}
+
+\newpage
+\q{Definition of minimal surface and proof of Theorem 3.28. Definition of conformal parametrization and proofs of Consequence 3.30 and Corollary 3.31 from the book.}
+
+\newpage
+\q{Definition of directional and covariant derivative. Proofs of lemma 4.4, Theorem 4.6, Corollary 4.8 from the book.}
+Directional derivative, $D_XY|_p=DY(p)(X)=\lim\limits_{h\to0}\frac{Y(p+hX)-Y(p)}{h}$.
+\\Covariant - $\nabla_XY(p)=\left(D_XY(p)\right)^{tang}=D_XY(p)-\inn{D_XY(p),\nu}\nu$
+\\Lemma 4.4 follows from standard derivatives.
+\\THM 4.6 - The covariant derivative depends only on the first fundamental form.
+\begin{proof}
+	We set $X=\sum\xi^i\parti{f}{u^i}$ and $Y=\sum\eta^j\parti{f}{u^j}$. In order to determine $\nabla_XY$, it is sufficient to know the quantities $\inn{\nabla_XY,\parti{f}{u^k}}$ for all $k$. From the calculus rules 4.4 we get the equation, 
+	\begin{align*}
+		\nabla_XY=&\sum\xi^i\nabla_{\parti{f}{u^i}}Y
+		\\=&\sum\xi^i\sum\nabla_{\parti{f}{u^i}}\left(\eta^j\parti{f}{u^j}\right)
+		\\=&\sum\xi^i\left(\parti{eta^j}{u^i}\parti{f}{u^j}+\eta^j\nabla_{\parti{f}{u^i}}\parti{f}{u^j}\right)
+	\end{align*}
+\end{proof}
+
+\newpage
+\q{Definition of geodesic line, line of curvature and asymptotic line. Definition of parallel vector field on a surface element and along a curve, parallel displacement. Proofs of Corollary 4.11, Theorem 4.12, Theorem 4.13.}
+Parallel vector field - 4.9
+\\
+
+\newpage
+\q{Fundamental theorem of the local theory of surfaces. Proofs of Lemma 4.23 and Theorem 4.24}
+
+\newpage
+\q{Proof of Theorema egregium in the two variants- Theorem 4.15, Corollary 4.16, Lemma 4.17, Corollary 4.20.}
+
+\newpage
+\q{Definition of 1-form and 2-form, properties and exterior differential. Proofs of Theorem 4.34, Theorem 4.35, Local Gauss-Bonnet formula (Theorem 4.38).}
+
+\newpage
+\q{Proof of Theorem 4.39, Corollary 4.40, 4.43 (global Gauss-Bonnet formula).}
+\end{enumerate}
+
+\newpage
+\section{Problems:}
+\begin{enumerate}
+\q{Prove that a curve satisfies $\ddot cc^{(3)}c^{(4)}=0$ iff its principal normals are parallel to a fixed plane.}
+Since $c^{(4)}$ exists, we know $c\in\mathcal{C}^4$ at least (and $c^{(4)}$ must have at most countably many discontinuities). Hence, if $c^{(4)}\neq0$ on some interval, then we know $c^{(3)}$ is changing (and hence not constantly 0) on that interval. But then by similar logic we see $\ddot c\neq0$. But then $\ddot cc^{(3)}c^{(4)}\neq0$ for at least some points in there. So, then $c^{(4)}\neq0$ doesn't hold for any intervals. But then, either $c^{(4)}\equiv0$, or there are some points of discontinuities in $c^{(4)}$, but at those points one of the others must be 0. But since the 
+
+\newpage
+\q{Solve problem 25 on p. 52 from the book.\\A Frenet curve in $\mathbb{R}^3$ is called a \emph{Bertrand curve}, if there is a second curve such that the principle normal vectors to these two curves (at corresponding points) are identical, viewed as lines in space. One speaks in the case of a \emph{Bertrand pair of curves}. Show that non-planar Bertrand curves are characterized by the existence of a linear relation $a\kappa+b\tau=1$ with constants $a,b$, where $a\neq0$.}
+Let $c_1,c_2$ be a pair of distinct Bertrand curves in $\mathbb{R}^3$. WLOG: we can assume that $c_1$ is parameterized by arc-length already (if not, then re-parameterize it, and whatever the re-parameterization function is, apply it to the $c_2$ parameter too, and we have what we want).
+\\First we notice that $d(c_1(t),c_2(t))$ is constant. To see this,
+\begin{align*}
+	c_2(t)=&c_1(t)+f(t)N(t) \text{ because the two $\vec N$s define the same line in space}
+\end{align*}
+If we prove that $f(t)$ is constant, we've done what we need. But note:
+\begin{align*}
+	\frac{T_2}{t'}=&\dot c_2
+	\\=&c_1'+f'N+fN'
+	\\=&T_1+f'N+f(-\kappa_1T_1+\tau_1B_1)
+	\\=&(1-f\kappa_1)T_1+f'N+f\tau_1B_1 \Rightarrow
+	\\f't'=&\langle c_2',N\rangle=\langle T_2,N\rangle=0
+\end{align*}
+So, $f$ is constant (because $t$ is never constant wrt the arc-length parameter, or differently stated, $t'\neq0$), and hence $d(c_1(t),c_2(t))$ is constant (let's say $=\alpha$) as well.
+\\Next we claim that $\theta=\Theta(t)=\frac{\langle T_1,T_2\rangle}{||T_1||||T_2||}=\langle T_1,T_2\rangle$ is constant. To see this,
+\begin{align*}
+	T_2=&Proj_{T_2}T_1+Proj_{T_2}N+Proj_{T_2}B_1
+	\\=&T_1\cos\theta+B_1\sin\theta \text{ because $T_2\perp N$}
+	\\\frac{N}{t'}=&\dot T_2
+	\\=&T_1'\cos\theta-T_1\sin\theta\theta'+B_1'\sin\theta+B_1\cos\theta\theta'
+	\\=&\kappa_1N\cos\theta-T_1\sin\theta\theta'-\tau_1N\sin\theta+B_1\cos\theta\theta'
+	\\=&-\sin\theta\theta'T_1+(\kappa_1\cos\theta-\tau_1\sin\theta)N+\cos\theta\theta'B_1\Rightarrow
+	\\-\sin\theta\theta'=&0=\cos\theta\theta'\Rightarrow
+	\\\theta'=&0
+\end{align*}
+So $\theta$ is constant. So, by matching coefficients we find,
+\begin{align*}
+	\cos\theta=&t'-f\kappa_1t' & \sin\theta=&f\tau_1t'
+\end{align*}
+Since the curves were distinct and the distance is constant, we know $f\neq0$, and since the curves are non-planar, we know $\tau_1\neq0$. So,
+\begin{align*}
+	\cot\theta=\frac{\cos\theta}{\sin\theta}=&\frac{t'-f\kappa_1t'}{f\tau_1t'}=\frac{1-f\kappa_1}{f\tau_1}\rightarrow
+	\\f\kappa_1+\cot\theta f\tau_1=&1\rightarrow \text{ let }a=f\kappa_1 \text{, and }b=\cot\theta f.
+\end{align*}
+Now, let us assume there is a non-planar Frenet curve $c_1$ in $\mathbb{R}^3$, and constants $a,b$ with $a\neq0$, such that for all $s$ (I'm assuming $c_1$ is parameterized by arc length) $a\kappa+b\tau=1$. We need to find a Bertrand pair for this curve. To do that, let $d=a$, and define a new curve, $c_2=c_1+dN_1$. The only thing we need to do is show that $c_2$ is a Frenet curve and that the two $N$'s define the same line in space.
+
+\newpage
+\q{Determine the curvature and torsion of the curve given by:
+\begin{enumerate}
+\p{The intersection of the surfaces $x^3=3a^2y$ and $2xz=a^2$.
+\\Firstly if $a=0$, then the resulting intersection is the $y,z$ plane and hence not a curve. So let $a\neq0$ which means $x,y,z\neq0$ so we can divide by them. Hence,
+\begin{align*}
+	8x^3z^3=&a^6 & x^3=&3a^2y
+	\\24a^2yz^3=&a^6 & x\frac{a^4}{4z^2}=&3a^2\frac{a^4}{24z^3}
+	\\24yz^3=&a^4 & x=&\frac{a^2}{2z}
+	\\y=&\frac{a^4}{24z^3} & &
+\end{align*}
+So, we can let $z=t$, and we have that the curve is, $c(t)=\left(\frac{a^2}{2t},\frac{a^4}{24t^3},t\right)$ (so formally this would be two curves, one for the positive $t$ and one for negative, and note that the denominators throughout this problem cannot be zero because $t$ has to be on one side of zero). $\dot c=\left(\frac{-a^2}{2t^2},\frac{-a^4}{8t^4},1\right)$, and $||\dot c||=\sqrt{\frac{a^4}{4t^4}+\frac{a^8}{64t^8}+1}=\frac{\sqrt{64t^8+16a^4t^4+a^8}}{8t^4}=\frac{\sqrt{(a^4+8t^4)^2}}{8t^4}=\frac{8t^4+a^4}{8t^4}$. Hence, $T=\frac{8t^4}{8t^4+a^4}\left(\frac{-a^2}{2t^2},\frac{-a^4}{8t^4},1\right)=\frac{1}{8t^4+a^4}\left(-4a^2t^2,-a^4,8t^4\right)$.
+\begin{align*}
+	\dot T=&\frac{1}{8t^4+a^4}\left(-8a^2t,0,32t^3\right)-\frac{32t^3}{(8t^4+a^4)^2}\left(-4a^2t^2,-a^4,8t^4\right)
+	\\=&\frac{8t^4+a^4}{(8t^4+a^4)^2}\left(-8a^2t,0,32t^3\right)-\frac{32t^3}{(8t^4+a^4)^2}\left(-4a^2t^2,-a^4,8t^4\right)
+	\\=&\frac{1}{(8t^4+a^4)^2}\left(-(8t^4+a^4)8a^2t+128a^2t^5,32a^4t^3,32t^3(8t^4+a^4-8t^4)\right)
+	\\=&\frac{1}{(8t^4+a^4)^2}\left(-64a^2t^5-8a^6t+128a^2t^5,32a^4t^3,32a^4t^3\right)
+	\\=&\frac{8a^2t}{(8t^4+a^4)^2}\left(8t^4-a^4,4a^2t^2,4a^2t^2\right)
+\end{align*}
+Since $T'=\dot Tt'=\frac{\dot T}{\dot s}$, where $s$ is the arc-length parameter, it suffices to find what $\frac{ds}{dt}$ ($\dot s$) is. Note, $s(t)=\int_{t_0}^t||\dot c(t)||dt=F(t)-F(t_0)$, where $\frac{dF}{dt}=||\dot c||$ (by the fundamental theorem of Calculus). Hence, $\dot s=\frac{ds}{dt}=\frac{d}{dt}(F(t)-F(t_0))=\frac{dF}{dt}(t)=||\dot c||$. So, 
+\begin{align*}
+	T'=&\frac{8t^4}{8t^4+a^4}\frac{8a^2t}{(8t^4+a^4)^2}\left(8t^4-a^4,4a^2t^2,4a^2t^2\right)
+	\\=&\frac{64a^2t^5}{(8t^4+a^4)^3}\left(8t^4-a^4,4a^2t^2,4a^2t^2\right)
+\end{align*}
+So,
+\begin{align*}
+	\kappa=&||c''||=||T'||
+	\\=&\left|\left|\frac{64a^2t^5}{(8t^4+a^4)^3}\left(8t^4-a^4,4a^2t^2,4a^2t^2\right)\right|\right|
+	\\=&\frac{64a^2t^5}{(8t^4+a^4)^3}\left|\left|\left(8t^4-a^4,4a^2t^2,4a^2t^2\right)\right|\right|
+	\\=&\frac{64a^2t^5}{(8t^4+a^4)^3}\sqrt{(8t^4-a^4)^2+16a^4t^4+16a^4t^4}
+	\\=&\frac{64a^2t^5}{(8t^4+a^4)^3}\sqrt{64t^8-16a^4t^4+a^8+16a^4t^4+16a^4t^4}
+	\\=&\frac{64a^2t^5}{(8t^4+a^4)^3}\sqrt{64t^8+16a^4t^4+a^8}
+	\\=&\frac{64a^2t^5}{(8t^4+a^4)^3}\sqrt{(8t^4+a^4)^2}
+	\\=&\frac{64a^2t^5}{(8t^4+a^4)^2}
+\end{align*}
+$T=\frac{1}{8t^4+a^4}\left(-4a^2t^2,-a^4,8t^4\right)$
+\\$N=\frac{1}{8t^4+a^4}\left(8t^4-a^4,4a^2t^2,4a^2t^2\right)$.
+\\So, $B=\frac{1}{(8t^4+a^4)^2}\left(-4a^6t^2-32a^2t^6,64t^8-8a^4t^4+16a^4t^4,-16a^4t^4+8a^4t^4-a^8\right)
+\\=\frac{1}{(8t^4+a^4)^2}\left(-4a^2t^2(8t^4+a^4),8t^4(8t^4+a^4),-a^4(8t^4+a^4)\right)=\frac{1}{8t^4+a^4}\left(-4a^2t^2,8t^4,-a^4\right)$
+\begin{align*}
+	\tau B=&N'+\kappa T
+	\\=&\left(\frac{T'}{\kappa}\right)'+\kappa T
+	\\=&\left(\frac{1}{8t^4+a^4}\left(8t^4-a^4,4a^2t^2,4a^2t^2\right)\right)'+\kappa T
+	\\=&\frac{-256t^7}{(8t^4+a^4)^3}\left(8t^4-a^4,4a^2t^2,4a^2t^2\right)+\frac{8t^4}{(8t^4+a^4)^2}\left(32t^3,8a^2t,8a^2t\right)+\frac{64a^2t^5}{(8t^4+a^4)^3}\left(-4a^2t^2,-a^4,8t^4\right)
+	\\ =&\frac{8t^5}{(8t^4+a^4)^3}\left(-8a^2(-4a^2t^2),-8a^2(8t^4),-8a^2(-a^4) \right)
+	\\=&\frac{-64a^2t^5}{(8t^4+a^4)^2}\left(\frac{1}{8t^4+a^4}\left(-4a^2t^2,8t^4,-a^4 \right)\right)=\frac{-64a^2t^5}{(8t^4+a^4)^2}B\Rightarrow\tau=\frac{-64a^2t^5}{(8t^4+a^4)^2}
+\end{align*}}
+\p{$c=(\cos^3t,\sin^3t,\cos2t)$.
+\begin{align*}
+	\dot c=&(-\cos^2t\sin t,\sin^2t\cos t,-2\sin2t) & \Rightarrow& & ||\dot c||^2=&\cos^4t\sin^2t+\sin^4t\cos^2t+4\sin^22t
+	\\& & & & =&\cos^2t\sin^2t(\cos^2t+\sin^2t)+4(2\sin t\cos t)^2
+	\\& & & & =&17\cos^2t\sin^2t=\frac{17}{4}\sin^22t
+\end{align*}
+So that, $||\dot c||=\sqrt{17}\cos t\sin t=\frac{\sqrt{17}}{2}\sin2t$ and $c'=\frac{1}{\sqrt{17}}\left(-\cos t,\sin t,-4\right)$. Then, }
+\end{enumerate}}
+
+\newpage
+\q{if $c$ is a closed curve on the unit sphere of length $L$, show that:}
+\subsubsection{$\int_0^L\tau(s)ds=0$}
+\subsubsection{$\int_0^L\frac{\tau}{\kappa}ds=0$}
+
+\newpage
+\q{Suppose that a Frenet curve is an intersection of two regular (parameterized) surface elements. Show that if it is a line of curvature for both surfaces than the surfaces intersect at a constant angle.}
+
+\newpage
+\q{Find asymptotic lines of the surface $z=a(\frac{x}{y}+\frac{y}{x})$}
+Firstly, this surface is only defined when $x,y\neq0$, so let's let $U=\{v\in\mathbb{R}^2|\pi_1(v)\neq0\neq\pi_2(v)\}$ and let $f:U\to\mathbb{R}^3$ given by, $f(x,y)=(x,y,a(\frac{x}{y}+\frac{y}{x}))$
+
+\newpage
+\q{Prove that a line of curvature on a surface is planar if its osculating plane forms a constant angle with the tangent plane to the surface.}
+
+\newpage
+\q{Show that the catenoid is the only surface of rotation for which $H\equiv0,K\not\equiv0$.}
+
+\newpage
+\q{The \textit{rotational torus} is given by \begin{align*}f(u,v)=\left((a+b\cos u)\cos v,(a+b\cos u)\sin v,b\sin u\right),\end{align*} $0\leq u,v\leq2\pi$, cf. Figure 3.3. Here $a>b>0$ are arbitrary (but fixed) parameters. Calculate the \textit{total mean curvature} of this torus as the surface integral of the function $(H(u,v))^2,0\leq u,v\leq2\pi,$ explicitly as a function of $a$ and $b$. What is the smallest possible value of the total mean curvature?
+\\Hint: The minimum occurs at $a=\sqrt2b$. Note that the integral is invariant under homotheties $x\to\lambda x$ of space with a fixed number $\lambda$.}
+
+\newpage
+\q{For a surface element $f:U\to\mathbb{R}^3$ we define the \textit{parallel surface} at distance $\epsilon$ by
+\begin{align*}
+	f_\epsilon(u_1,u_2):=f(u_1,u_2)+\epsilon\cdot\nu(u_1,u_2),
+\end{align*}
+cf. Section 3D. $\nu$ is the unit normal of the surface $f$. Decide for which $\epsilon$ this defines a regular surface, and show the following.
+\begin{enumerate}
+\p{The principal curvatures of $f_\epsilon$ and $f$ have a ratio of $\kappa_i^{(\epsilon)}=\kappa_i/(1-\epsilon\kappa_i).$}
+\p{In case $f$ has constant mean curvature $H\neq0, f_\epsilon$ has constant Gaussian curvature for $\epsilon=\frac{1}{2H}$.}
+\end{enumerate}}
+
+\newpage
+\q{Problems 11-20 on p. 187 (CH 4) from the book.}
+
+\newpage
+\q{Show that on a parameterized surface element with $K\leq0$ there is no closed geodesic.}
+\end{enumerate}
+\end{document}

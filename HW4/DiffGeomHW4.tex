@@ -1,0 +1,140 @@
+\documentclass[12pt]{amsart}
+
+\usepackage{amsmath, amsthm, amssymb, amsfonts, comment, tikz}
+\usepackage[margin=0.65 in]{geometry}
+\renewcommand\thesubsection{\alph{subsection}}
+\newcommand{\parti}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\inn}[1]{\left\langle #1\right\rangle}
+\newcommand{\ka}[0]{\kappa}
+\newcommand{\la}[0]{\lambda}
+
+\begin{document}
+
+\title{Differential Geometry Homework 4}
+\author{Aaron Niskin \\PID: 3337729}
+\date{15 APR 2015}
+\maketitle
+Pick any 6 - 
+\begin{enumerate}
+	\item Let $H$ and $K$ be the mean and Gaussian curvature of a parameterized surface element $f(U)$. Show that $H^2\geq K$ and describe all surfaces for which the equality holds.
+
+	Let $\ka_1,\ka_2$ be the curvatures. Since $H^2\geq K\iff H^2-K\geq0$, we will show the latter.
+	\begin{align*}
+		H^2-K=&(\ka_1+\ka_2)^2/4-\ka_1\ka_2=(\ka_1-\ka_2)^2/4\geq0
+	\end{align*}
+	And clearly equality holds only for umbilic points. So if it is to be equal everywhere, the surface must have only umbilics (IE a subset of the plane or sphere).
+
+\newpage
+	\item Suppose that $U\subseteq\mathbb{R}^2$ is a simply connected domain and $f:U\to\mathbb{R}^3$ is a 1 to 1 map defining a regular surface with $K<0$. Show that there are no closed geodesics and no closed asymptotic lines. For the last question it does not follow from the material only in this book, so you are expected to find the answer in any way you can.
+	\begin{proof}
+		Let $X_1,X_2$ be vectorfields such that $X_1(p),X_2(p)$ are the eigenvectors for the Weingarten map with $\ka_1(p),\ka_2(p)$ the corresponding eigenvalues (the curvatures). Necessarily, neither $\ka_1(p)$ nor $\ka_2(p)$ are $0$ because $K(p)=\ka_1(p)\ka_2(p)\lneq0$. Since $\ka_1,\ka_2\neq0,$ we know $X_1(p),X_2(p)$ are orthogonal at every point. We can further restrict $X_i$ to be normal at every point. Now let $c:I\to f(U)$ be a curve.
+		\begin{itemize}
+			\item $c$ is not a closed geodesic. Since $U$ is a domain, we know either that $U=\mathbb{R}^2$, or $U$ is diffeomorphic to a disc. If we define $g:I\to\mathbb{R}$ by $g(t)=\text{dist}(c(t),\mathbb{R}^2\setminus U)$, then by the extreme value theorem, there is a maximum, $t_0$ with $g(t_0)=\alpha$. Hence, if we take $V$ to be $\{x\in U|d(x,c(t))\leq\alpha$ for some $t\in I\}$ together with any area enclosed by the curve, we get a closed subset of $U$ with $c(t)\in V$ for each $t\in I$. Since $U$ is a domain, we know that $V$ is diffeomorphic to a disc. So we can use Gauss-Bonnet!
+			\begin{align*}
+				0=\int_c0ds=\int_cK_gds=&2\pi-\int_{f(B)}KdA=2\pi+\left|\int_{f(B)}KdA\right|>2\pi\Rightarrow2\pi\leq0
+			\end{align*}
+			\item $c$ is not a closed asymptotic line: Since $X_1(p),X_2(p)$ are orthogonal, they are linearly independent and hence $\dot c(t)=\la_1(t)X_1(c(t))+\la_2(t)X_2(c(t))$ where $\la_i(t)\in\mathbb{R}$. To be an asymptotic line we need 
+			\begin{align*}
+				0=&I(L\dot c,\dot c)
+				\\=&I(L(\la_1X_1+\la_2X_2),\la_1X_1+\la_2X_2)
+				\\=&I(\la_1L(X_1),\la_1X_1)+I(\la_1L(X_1),\la_2X_2)
+				\\&+I(\la_2L(X_2),\la_1X_1)+I(\la_2L(X_2),\la_2X_2)
+				\\=&\la_1^2\ka_1+\la_2^2\ka_2\Rightarrow \la_1,\la_2\neq0 \text{ or } \la_1=\la_2=0
+			\end{align*}
+		\end{itemize}
+	\end{proof}
+
+\newpage
+	\item The \textit{Poincar\'e upper half plane} is defined as the set $\{(x,y)\in\mathbb{R}^2|y>0\}$ endowed with an abstractly given first fundamental form (or metric) $(g_{ij})=\frac{1}{y^2}\left(\begin{array}{cc} 1 & 0 \\ 0 & 1 \end{array}\right)$. Although this metric is not induced by a surface $f$ in $\mathbb{R}^3$, one can nevertheless calculate the Christoffel symbols and the geodesics as quantities of the intrinsic geometry. Hint: The geodesics are the curves with constant $x$ as well as the half circles whose centers lie on the $x$ axis. Introduce appropriate polar coordinates.
+	\begin{proof}
+		Let $X$ denote the Poincar\'e upper half plane and let $p\in X$ and let $x_0\in\mathbb{R}$ be determined later. Now we take new polar coordinates with $r=\sqrt{(x-x_0)^2+y^2}$, and $\theta=\cot^{-1}\left(\frac{x-x_0}{y}\right)$ so that $x-x_0=r\cos\theta$ and $y=r\sin\theta$. We now note that 
+		\begin{align*}
+			g_{rr}=&\inn{\parti{f}{r},\parti{f}{r}} & g_{\theta\theta}=&\inn{\parti{f}{\theta},\parti{f}{\theta}}
+			\\=&\inn{\parti{f}{x}\parti{x}{r}+\parti{f}{y}\parti{y}{r},\parti{f}{x}\parti{x}{r}+\parti{f}{y}\parti{y}{r}} & =&\inn{\parti{f}{x}\parti{x}{\theta}+\parti{f}{y}\parti{y}{\theta},\parti{f}{x}\parti{x}{\theta}+\parti{f}{y}\parti{y}{\theta}}
+			\\=&\cos^2\theta\left(\frac{1}{y^2}\right)+\sin^2\theta\left(\frac{1}{y^2}\right) & =&r^2\sin^2\theta\left(\frac{1}{y^2}\right)+r^2\cos^2\theta\left(\frac{1}{y^2}\right)
+			\\=&\frac{1}{r^2\sin^2\theta} & =&\frac{1}{\sin^2\theta}
+		\end{align*}
+		and $g_{r\theta}=\inn{\parti{f}{r},\parti{f}{\theta}}=\inn{\parti{f}{x}\parti{x}{r}+\parti{f}{y}\parti{y}{r},\parti{f}{x}\parti{x}{\theta}+\parti{f}{y}\parti{y}{\theta}}=-r\sin\theta\cos\theta\left(\frac{1}{y^2}\right)+r\sin\theta\cos\theta\left(\frac{1}{y^2}\right)=0$
+
+		Now, for a curve, $c$, to be a geodesic we need $\ddot u^k+\sum\limits_{i,j}\dot u^i\dot u^j\Gamma^k_{ij}=0$. We now need to find $\Gamma ^k_{ij}$. We know that $2\Gamma_{ij,k}=-\parti{}{u^k}g_{ij}+\parti{}{u^i}g_{jk}+\parti{}{u^j}g_{ki}$, but $\Gamma_{ij,k}=\sum\Gamma_{ij}^mg_{mk}=\Gamma_{ij}^k$. So,
+		\begin{align*}
+			\Gamma^r_{rr}=&\frac{1}{2g_{rr}}\parti{}{r}g_{rr} & \Gamma^r_{\theta\theta}=&-\frac{1}{2g_{rr}}\parti{}{r}g_{\theta\theta} & \Gamma^r_{r\theta}=&\frac{1}{2g_{rr}}\parti{}{\theta}g_{rr}
+			\\=&\frac{-1}{r} & =&0 & =&\frac{-\cos\theta}{\sin\theta}
+			\\\Gamma^\theta_{\theta\theta}=&\frac{1}{2g_{\theta\theta}}\parti{}{\theta}g_{\theta\theta} & \Gamma^\theta_{r\theta}=&\frac{1}{2g_{\theta\theta}}\parti{}{r}g_{\theta\theta} & \Gamma^\theta_{rr}=&-\frac{1}{2g_{\theta\theta}}\parti{}{\theta}g_{rr}
+			\\=&\frac{-\cos\theta}{\sin\theta} & =&0 & =&\frac{\cos\theta}{r^2\sin\theta}
+		\end{align*}
+		And now we compute... We need,
+		\begin{align*}
+			0=&\ddot\theta-(\dot\theta)^2\frac{\cos\theta}{\sin\theta}+(\dot r)^2\frac{\cos\theta}{r^2\sin\theta} & 0=&\ddot r-(\dot r)^2\frac{1}{r}-\dot r\dot \theta\frac{\cos\theta}{\sin\theta}
+		\end{align*}
+		Firstly, we note that $\theta\equiv\pi/2$ is a solution with $r=e^{\alpha t+a}$. Otherwise we claim that $\dot r=0$ is a solution. So that $\left(\frac{\dot r}{r}\right)^2=(\dot\theta)^2-\ddot\theta\frac{\sin\theta}{\cos\theta}=\lambda\Rightarrow \dot r=\sqrt{\lambda}r\rightarrow r=e^{\sqrt\lambda t+a}$. Note $\dot r=0\rightarrow\lambda=0$ and $(\dot\theta)^2\frac{\cos\theta}{\sin\theta}=\ddot\theta$ and $\theta=2\cot^{-1}\left(e^{c_1c_2-c_1t}\right)$ is a solution. So, since solutions are unique here, we know the only geodesics are either $\dot r=0$ (an $x$-axis centered circle) or $\theta\equiv\pi/2$ (a vertical line).
+		
+	\end{proof}
+
+	\newpage
+	\item Determine all functions $\lambda$ in Exercise 14 such that the Gaussian curvature of this abstract surface of rotation is -1. Hint: Look at 4.28.
+
+\newpage
+	\item Prove Theorem 4.30 from K\"uhnel's book. (``Surfaces with the same constant Gaussian curvature are isometric'')
+	\\Let $f:U\to\mathbb{R}^3,\tilde f:\tilde U\to\mathbb{R}^3$ be surface elements with the same constant Gaussian curvature. Then locally, $f$ and $\tilde f$ are isometric.
+	\begin{proof}
+		Let $K$ be the constant Gaussian curvature. We fix two points in $U,\tilde U$ and introduce in appropriately chosen neighborhoods geodesic parallel coordinates, starting with a given geodesic $u=0$ (i.e., Fermi coordinates). We denote the parameter for both surface elements by the same symbol $(u,v)$. The first fundamental forms of the surfaces, $I,\tilde I$ then have by 4.27 the form
+		\begin{align*}
+			I=& \left(\begin{array}{cc}
+				1 & 0 \\ 0 & G(u,v)
+			\end{array}\right) & 
+			\tilde I=&\left(\begin{array}{cc}
+				1 & 0 \\ 0 & \tilde G(u,v)
+			\end{array}\right)
+		\end{align*}
+		with $G(0,v)=1=\tilde G(0,v)$ for every $v$. The quantities $G$ and $\tilde G$ are uniquely determined by the differential equation
+		\begin{align*}
+			\parti{^2}{u^2}\sqrt G=&-K\sqrt G, & \parti{^2}{u^2}\sqrt{\tilde G}=-K\sqrt{\tilde G}
+		\end{align*}
+		which hold by 4.28. The uniqueness follows once we are given initial conditions
+		\begin{align*}
+			\parti{}{u}\sqrt{G(u,v)}|_{u=0}=0=\parti{}{u}\sqrt{\tilde G(u,v)}|_{u=0}
+		\end{align*}
+		Note that for fixed but arbitrary $v$, this is an ordinary differential equation of second order in the parameter $u$. Putting everything together, we have in these parameters $G=\tilde G$, hence $I=\tilde I$ and thus the local isometry of $f$ and $\tilde f$.
+	\end{proof}
+
+\newpage
+	\item Let $\mathbb{H}\cong\mathbb{R}^4$ be the algebra of quaternions with the standard addition and multiplication. Let $\mathbb{HP}^1=\mathbb{H}^2\setminus\{0\}/\sim$ where $(q_1,q_2)\sim(qq_1,qq_2),q\neq0$ be the quaternionic projective line. Show that $\sim$ is an equivalence relation. Find a differentiable structure on $\mathbb{HP}^2$ that makes it diffeomorphic to $S^4$
+	\begin{proof}
+		Since $\mathbb{H}$ is a division ring, we can divide by any non-zero elements. So,
+		\begin{itemize}
+		 	\item $(a,b)\sim(c,d)$, then $(a,b)=q(c,d)\rightarrow q^{-1}(a,b)=(c,d)\rightarrow (c,d)\sim(a,b)$
+		 	\item $(a,b)=1(a,b)$ so $\forall(a,b)\in\mathbb{H},(a,b)\sim(a,b)$
+		 	\item $(a,b)=\alpha(c,d)$ and $(c,d)=\beta(e,f)$ means, $(a,b)=\alpha\beta(e,f)$.
+		\end{itemize}
+		So it is an equivalence relation.
+	\end{proof}
+
+	\item Find a differentiable atlas on the set of all lines in $\mathbb{R}^3$. How many charts are necessary?
+
+	\begin{proof}
+		First, we can picture this set as $S^2$ with antipodal points associated. Then, we can take the standard stereographic projection of the upper hemisphere (not including any portion of the equator) as our first chart. Then, rotate the picture $45^o$ about the $x$-axis and take the stereographic projection of the new upper hemisphere. Now rotate $45^o$ about the $z$-axis and take yet another stereographic projection.
+	\end{proof}
+
+	\item Find a formula for the inverse mapping of the exponential mapping (kind of a logarithm) for the case of the group \textbf{SO}($n$). Hint: Take a power series and determine the coefficients.
+
+	\item Find a group isomorphism $\textbf{SO}(3)\sim\textbf{SU}(2)/(\pm Id)$ and $\textbf{SO}(4)\sim(\textbf{SU}(2)\times\textbf{SU}(2))/\mathbb{Z}_2$
+
+	\item Which are all 2-dimensional compact Lie groups?
+	\begin{itemize}
+		\item $\mathbb{CP}^1$ - the Riemann sphere with complex addition (homeomorphic to $S^2$).
+		\item The torus (seen as $S^1\times S^1$ with $S^1\subset\mathbb{C}$) with component-wise complex multiplication.
+		\item 
+	\end{itemize}
+
+	\item If $F:M\to M$ is a diffeomorphism and $X$ a vector field with a (local) flow $\phi_t$, show that $F_*X$ has local flow $F\circ\phi_t\circ F^{-1}$.
+
+	\item If $A$ and $B$ are left invariant vector fields on a Lie group, show that the curve
+	\begin{equation*}
+		t\to exp(\sqrt tA)exp(\sqrt tB)exp(-\sqrt tA)exp(-\sqrt tB)
+	\end{equation*}
+	is tangent to $[A,B]$.
+\end{enumerate}
+
+
+\end{document}
